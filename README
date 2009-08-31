@@ -1,0 +1,16 @@
+
+YAFA : Yet Another feed aggregator 
+----------------------------------
+
+Simple feed aggregator implemented in python. 
+It uses HBase for data storage. 
+
+Schema design
+-------------
+
+Feeds -> Content: Meta:
+Urls  -> Content: Meta:
+
+UrlsIndex       -> Url
+
+
