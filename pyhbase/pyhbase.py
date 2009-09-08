@@ -33,9 +33,11 @@ class Scanner(object):
         sid = self._client.scannerOpen(self._table, self._start_row, self._columns)
         try:
             while True:
-                yield self._client.scannerGet(sid)
-        except NotFound:
-            raise StopIteration()
+                r = self._client.scannerGet(sid)
+                if r:
+                    yield r[0]
+                else:
+                    raise StopIteration()
         finally:
             self._client.scannerClose(sid)
 
