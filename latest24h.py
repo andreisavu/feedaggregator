@@ -18,7 +18,7 @@ def latest24h():
     scanner = Scanner(client, 'UrlsIndex', ['Url:'], start_row=key)
     for row in scanner:
         url = client.getRow('Urls', row.columns['Url:0'].value)
-        yield url
+        yield url[0]
 
 if __name__ == '__main__':
     items = []
