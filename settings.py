@@ -1,0 +1,4 @@
+
+HBASE_THRIFT_HOST = 'localhost'
+HBASE_THRIFT_PORT = 9090
+

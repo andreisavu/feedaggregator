@@ -1,0 +1,6 @@
+Table: Feeds
+Schema: {'Content': ColumnDescriptor(bloomFilterType='false', bloomFilterNbHashes=0, name='Content', maxVersions=3, blockCacheEnabled=False, inMemory=False, timeToLive=-1, maxValueLength=2147483647, bloomFilterVectorSize=0, compression='NONE'), 'Meta': ColumnDescriptor(bloomFilterType='false', bloomFilterNbHashes=0, name='Meta', maxVersions=3, blockCacheEnabled=False, inMemory=False, timeToLive=-1, maxValueLength=2147483647, bloomFilterVectorSize=0, compression='NONE')}
+Table: Urls
+Schema: {'Content': ColumnDescriptor(bloomFilterType='false', bloomFilterNbHashes=0, name='Content', maxVersions=3, blockCacheEnabled=False, inMemory=False, timeToLive=-1, maxValueLength=2147483647, bloomFilterVectorSize=0, compression='NONE'), 'Meta': ColumnDescriptor(bloomFilterType='false', bloomFilterNbHashes=0, name='Meta', maxVersions=3, blockCacheEnabled=False, inMemory=False, timeToLive=-1, maxValueLength=2147483647, bloomFilterVectorSize=0, compression='NONE')}
+Table: UrlsIndex
+Schema: {'Url': ColumnDescriptor(bloomFilterType='false', bloomFilterNbHashes=0, name='Url', maxVersions=3, blockCacheEnabled=False, inMemory=False, timeToLive=-1, maxValueLength=2147483647, bloomFilterVectorSize=0, compression='NONE')}

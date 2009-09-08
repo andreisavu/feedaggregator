@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml-dummy xmlns="http://www.dlese.org/Metadata/opml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dlese.org/Metadata/opml
+http://www.dlese.org/Metadata/opml/2.0/opml.xsd" version="2.0">
+        <head>
+                <title>String</title>
+        </head>
+        <body>
+                <outline text="string" type="text">
+                	<outline text="string" type="link"></outline>
+                </outline>
+        </body>
+</opml-dummy>
