@@ -1,15 +1,28 @@
 #! /usr/bin/env python
 """
 Yet another feed aggregator. 
+
+A hase sample application.
 """
+
+from aggregator import db
+from settings import *
+
+import sys
+import logging as log
 
 from optparse import OptionParser
 
-def main():
-    opts, args = parse_cli()
-    print opts
+def dispatch(opts, args):
+    """ Analyze command line parameters end call the needed function """
+    if opts.initdb is True:
+        initdb()
+    elif opts.resetdb is True:
+        dropdb()
+        initdb()
 
 def parse_cli():
+    """ Setup CLI parser and use it """
     parser = OptionParser()
 
     parser.add_option('', '--initdb', action="store_true", 
@@ -27,6 +40,21 @@ def parse_cli():
     
     return parser.parse_args()
 
+def get_hbase_client():
+    log.info('Connecting to Hbase Host:%s, Port:%s' % (HBASE_THRIFT_HOST, HBASE_THRIFT_PORT))
+    try:
+        return db.create_client(HBASE_THRIFT_HOST, HBASE_THRIFT_PORT)
+    except Exception:
+        log.critical('HBase connection failed')
+        sys.exit(1)
+
+def initdb():
+    client = get_hbase_client()
+
 if __name__ == '__main__':
-    main()
+    log.basicConfig(level=log.INFO)
+    opts, args = parse_cli()
+    print opts
+    dispatch(opts, args)
+
 
