@@ -2,7 +2,7 @@
 import unittest
 import os
 
-from feedaggregator import *
+from aggregator.opml import *
 
 class TestLoader(unittest.TestCase):
 
