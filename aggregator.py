@@ -9,17 +9,22 @@ from aggregator import db
 from settings import *
 
 import sys
+import time
 import logging as log
 
 from optparse import OptionParser
+from datetime import datetime
 
 def dispatch(opts, args):
     """ Analyze command line parameters end call the needed function """
+    client = get_hbase_client()
     if opts.initdb is True:
-        initdb()
+        initdb(client)
     elif opts.resetdb is True:
-        dropdb()
-        initdb()
+        dropdb(client)
+        initdb(client)
+    elif opts.feed is not None:
+        aggregate_feed(client, opts.feed, opts.cat or "")
 
 def parse_cli():
     """ Setup CLI parser and use it """
@@ -35,6 +40,8 @@ def parse_cli():
         help="aggregate feeds from opml FILE", metavar="FILE")
     parser.add_option('-f', '--feed', dest="feed",
         help="parse FEED and add to index", metavar="FEED")
+    parser.add_option('-c', '--cat', dest="cat",
+        help="feed CATEGORIES. csv format in quotes", metavar="CATEGORIES")
     parser.add_option('-w', '--webui', action="store_true",
         dest="webui", default=False, help="start simple web interface")
     
@@ -48,26 +55,21 @@ def get_hbase_client():
         log.critical('HBase connection failed')
         sys.exit(1)
 
-def initdb(client=None):
-    client = get_hbase_client()
+def initdb(client):
     create_feeds_table(client)
     create_urls_table(client)
     create_urlsindex_table(client)
 
-def dropdb():
-    client = get_hbase_client()
+def dropdb(client):
     tables = client.getTableNames()
-    
     if 'Urls' in tables:
         log.info('Removing table `Urls`')
         client.disableTable('Urls')
         client.deleteTable('Urls');
-
     if 'Feeds' in tables:
         log.info('Removing table `Feeds`')
         client.disableTable('Feeds')
         client.deleteTable('Feeds')
-
     if 'UrlsIndex' in tables:
         log.info('Removing table `UrlsIndex`')
         client.disableTable('UrlsIndex')
@@ -99,10 +101,92 @@ def create_urlsindex_table(client):
     except db.AlreadyExists:
         log.error('Table `UrlsIndex` alread exists.')
 
+
+def aggregate_feed(client, feed, categs=""):
+    """
+    Fetch feed content, parse it and generate all the needed indexes.
+    """
+    try:
+        content, encoding = fetch_feed(feed)
+        save_feed(client, feed, content, encoding, categs)
+        save_urls(client, content, encoding, categs)
+    except (IOError, db.IllegalArgument), e:
+        log.error(e)
+
+
+def fetch_feed(feed):
+    """
+    Fetch feed and detect charset. The return result is a  byte string and
+    the encoding information.
+    """
+    from urllib import urlopen
+    import chardet
+    
+    log.info("Fetching feed '%s'" % feed)
+    content = urlopen(feed).read()
+
+    d = chardet.detect(content)
+    log.info("Detected charset: %s" % d['encoding'])
+
+    return smart_str(content, d['encoding'], 'replace'), str(d['encoding'])
+
+def save_feed(client, feed, content, encoding, categs):
+    log.info("Pushing content to hbase 'Feeds' table")
+    data = [
+        db.Mutation(column='Content:raw', value=content),
+        db.Mutation(column='Meta:lasthit', value=str(time.time())),
+        db.Mutation(column='Meta:encoding', value=encoding),
+        db.Mutation(column='Meta:categs', value=str(categs))
+    ]
+    client.mutateRow('Feeds', feed, data)
+
+def save_urls(client, content, encoding, categs):
+    import feedparser
+    log.info('Parsing feed content')
+    data = feedparser.parse(content)
+    for entry in data.entries:
+        url, title = entry.link, entry.title
+        if 'content' in entry:
+            content = entry.content[0].value
+        else:
+            content = ''
+
+        log.info("Adding & indexing: '%s'" % url)
+        t = time.mktime(entry.updated_parsed)
+        data = [
+            db.Mutation(column='Content:raw', value=smart_str(content, encoding)),
+            db.Mutation(column='Content:title', value=smart_str(title, encoding)),
+            db.Mutation(column='Meta:updated', value=str(t))
+        ]
+        client.mutateRow('Urls', url, data)
+
+        # warning : avoid having duplicates by checking current value
+        key = datetime.fromtimestamp(t).isoformat()
+        parts = set([x.strip() for x in categs.split(',')])
+        parts.add('__all__')
+        for cat in parts:
+            row = '%s/%s' % (cat,key)
+            client.mutateRow('UrlsIndex', row, [db.Mutation(column='Url', value=smart_str(url))])
+
+def smart_str(s, encoding='utf-8', errors='replace'):
+    """
+    Returns a bytestring version of 's', encoded as specified in 'encoding'.
+    """
+    if not isinstance(s, basestring):
+        try:
+            return str(s)
+        except UnicodeEncodeError:
+            return unicode(s).encode(encoding, errors)
+    elif isinstance(s, unicode):
+        return s.encode(encoding, errors)
+    elif s and encoding != 'utf-8':
+        return s.decode('utf-8', errors).encode(encoding, errors)
+    else:
+        return s
+
 if __name__ == '__main__':
     log.basicConfig(level=log.INFO)
     opts, args = parse_cli()
-    print opts
     dispatch(opts, args)
 
 
