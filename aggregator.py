@@ -7,6 +7,7 @@ A hase sample application.
 
 from aggregator import db
 from aggregator.threadpool import ThreadPool
+from aggregator.opml import OpmlLoader
 from settings import *
 
 import sys
@@ -28,6 +29,8 @@ def dispatch(opts, args):
         aggregate_feed(client, opts.feed, opts.cat or "")
     elif opts.refresh_feeds is True:
         refresh_feeds(client)
+    elif opts.opml is not None:
+        aggregate_opml(client, opts.opml)
 
 def parse_cli():
     """ Setup CLI parser and use it """
@@ -110,10 +113,26 @@ def refresh_feeds(client):
     """
     log.info('Starting to refresh all feeds')
     scanner = db.Scanner(client, 'Feeds', ['Meta:'])
-    pool = ThreadPool(10) 
+    pool = ThreadPool(5) 
     for row in scanner:
         feed, categs = row.row, row.columns['Meta:categs'].value
         pool.queueTask(lambda p:aggregate_feed(*p), (client, feed, categs))
+    pool.joinAll()
+
+def aggregate_opml(client, file):
+    """
+    Aggregate all links from an OPML file
+    """
+    loader = OpmlLoader(file)
+    if not loader.is_valid():
+        log.error('Invalid opml file: %s' % file)
+        return
+
+    log.info('Loading from file: %s' % file)
+    pool = ThreadPool(5)
+    for element in loader:
+        # aggregate_feed(client, element.xmlUrl)
+        pool.queueTask(lambda p:aggregate_feed(*p), (client, element.xmlUrl))
     pool.joinAll()
 
 def aggregate_feed(client, feed, categs=""):
