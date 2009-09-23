@@ -6,6 +6,7 @@ A hase sample application.
 """
 
 from aggregator import db
+from aggregator.threadpool import ThreadPool
 from settings import *
 
 import sys
@@ -25,6 +26,8 @@ def dispatch(opts, args):
         initdb(client)
     elif opts.feed is not None:
         aggregate_feed(client, opts.feed, opts.cat or "")
+    elif opts.refresh_feeds is True:
+        refresh_feeds(client)
 
 def parse_cli():
     """ Setup CLI parser and use it """
@@ -101,6 +104,17 @@ def create_urlsindex_table(client):
     except db.AlreadyExists:
         log.error('Table `UrlsIndex` alread exists.')
 
+def refresh_feeds(client):
+    """
+    Refresh all feeds found in the database using a pool of threads. 
+    """
+    log.info('Starting to refresh all feeds')
+    scanner = db.Scanner(client, 'Feeds', ['Meta:'])
+    pool = ThreadPool(10) 
+    for row in scanner:
+        feed, categs = row.row, row.columns['Meta:categs'].value
+        pool.queueTask(lambda p:aggregate_feed(*p), (client, feed, categs))
+    pool.joinAll()
 
 def aggregate_feed(client, feed, categs=""):
     """
@@ -160,7 +174,7 @@ def save_urls(client, content, encoding, categs):
         ]
         client.mutateRow('Urls', url, data)
 
-        # warning : avoid having duplicates by checking current value
+        # XXX warning : avoid having collisions
         key = datetime.fromtimestamp(t).isoformat()
         parts = set([x.strip() for x in categs.split(',')])
         parts.add('__all__')
