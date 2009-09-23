@@ -48,8 +48,56 @@ def get_hbase_client():
         log.critical('HBase connection failed')
         sys.exit(1)
 
-def initdb():
+def initdb(client=None):
     client = get_hbase_client()
+    create_feeds_table(client)
+    create_urls_table(client)
+    create_urlsindex_table(client)
+
+def dropdb():
+    client = get_hbase_client()
+    tables = client.getTableNames()
+    
+    if 'Urls' in tables:
+        log.info('Removing table `Urls`')
+        client.disableTable('Urls')
+        client.deleteTable('Urls');
+
+    if 'Feeds' in tables:
+        log.info('Removing table `Feeds`')
+        client.disableTable('Feeds')
+        client.deleteTable('Feeds')
+
+    if 'UrlsIndex' in tables:
+        log.info('Removing table `UrlsIndex`')
+        client.disableTable('UrlsIndex')
+        client.deleteTable('UrlsIndex')
+
+def create_feeds_table(client):
+    try:
+        log.info('Creating `Feeds` table')
+        client.createTable('Feeds', [
+            db.ColumnDescriptor(name='Content'),
+            db.ColumnDescriptor(name='Meta', maxVersions=1)])
+    except db.AlreadyExists:
+        log.error('Table `Feeds` alread exists.')
+
+def create_urls_table(client):
+    try:
+        log.info('Creating `Urls` table')
+        client.createTable('Urls', [
+            db.ColumnDescriptor(name='Content'),
+            db.ColumnDescriptor(name='Meta', maxVersions=1)])
+    except db.AlreadyExists:
+        log.error('Table `Urls` alread exists.')
+
+def create_urlsindex_table(client):
+    try:
+        log.info('Creating `UrlsIndex` table')
+        client.createTable('UrlsIndex', [
+            db.ColumnDescriptor(name='Url', maxVersions=1)])
+    except db.AlreadyExists:
+        log.error('Table `UrlsIndex` alread exists.')
 
 if __name__ == '__main__':
     log.basicConfig(level=log.INFO)
