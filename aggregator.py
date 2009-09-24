@@ -30,7 +30,9 @@ def dispatch(opts, args):
     elif opts.refresh_feeds is True:
         refresh_feeds(client, opts.cat or "")
     elif opts.opml is not None:
-        aggregate_opml(client, opts.opml, opt.cat or "")
+        aggregate_opml(client, opts.opml, opts.cat or "")
+    elif opts.file is not None:
+        aggregate_file(client, opts.file, opts.cat or "")
 
 def parse_cli():
     """ Setup CLI parser and use it """
@@ -46,6 +48,8 @@ def parse_cli():
         help="aggregate feeds from opml FILE", metavar="FILE")
     parser.add_option('-f', '--feed', dest="feed",
         help="parse FEED and add to index", metavar="FEED")
+    parser.add_option('', '--file', dest='file',
+        help="load feeds from FILE. one url per line", metavar="FILE")
     parser.add_option('', '--cat', dest="cat",
         help="feed CATEGORIES. csv format in quotes", metavar="CATEGORIES")
     parser.add_option('', '--hours', dest="hours",
@@ -135,6 +139,18 @@ def refresh_feeds(client, allowed_categs):
         if not any_in(parse_categories(categs), allowed_categs):
             continue
         pool.queueTask(lambda worker, p:aggregate_feed(worker.hbase, *p), (feed, categs))
+    pool.joinAll()
+
+def aggregate_file(client, file_path, categs):
+    """
+    Aggregate all links from a text file
+    """
+    log.info('Loading from file: %s' % file_path)
+    
+    file = open(file_path)
+    pool = ThreadPool(10, thread_init=attach_connection) 
+    for url in file.xreadlines():
+        pool.queueTask(lambda worker, p:aggregate_feed(worker.hbase, *p), (url.strip(), categs))
     pool.joinAll()
 
 def aggregate_opml(client, file, categs):
