@@ -9,25 +9,25 @@ import db
 from threadpool import ThreadPool
 from util import smart_str
 
-def aggregate(client, feed, categs=""):
+def aggregate(hbase, feed, categs=""):
     """
     Aggregate one feed. Fetch, parse and add to index table
     """
     try:
         content, encoding = fetch(feed)
-        save_feed(client, feed, content, encoding, categs)
-        extract_urls(client, content, encoding, categs)
+        save_feed(hbase, feed, content, encoding, categs)
+        extract_urls(hbase, content, encoding, categs)
     except (IOError, db.IllegalArgument), e:
         log.error(e)
 
-def aggregate_all(client, generator):
+def aggregate_all(client, iterator, attach_connection):
     """
     Aggregate all feeds returned by the generator.
 
     The generator should contain pairs of two elements (feed_url, categories)
     """
     pool = ThreadPool(10, thread_init=attach_connection) 
-    for feed, categs in generator:
+    for feed, categs in iterator:
         pool.queueTask(lambda worker, p:aggregate(worker.hbase, *p), (feed, categs))
     pool.joinAll()
 

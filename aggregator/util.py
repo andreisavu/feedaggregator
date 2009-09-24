@@ -20,4 +20,6 @@ def any_in(needles, haystack):
         if x in haystack: return True
     return False
 
+def split_csv(cats):
+    return filter(None, [x.strip() for x in cats.split(',')])
 

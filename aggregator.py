@@ -17,7 +17,7 @@ from aggregator import feeds
 
 from aggregator.threadpool import ThreadPool
 from aggregator.opml import OpmlLoader
-from aggregator.util import smart_str, any_in
+from aggregator.util import smart_str, any_in, split_csv
 
 from settings import *
 
@@ -26,17 +26,23 @@ def dispatch(opts, args):
     client = get_hbase_client()
     if opts.initdb is True:
         db.schema.initdb(client)
+
     elif opts.resetdb is True:
         db.schema.dropdb(client)
         db.schema.initdb(client)
+
     elif opts.feed is not None:
         feeds.aggregate(client, opts.feed, opts.cat or "")
+
     elif opts.refresh_feeds is True:
         refresh_feeds(client, opts.cat or "")
+
     elif opts.opml is not None:
         aggregate_opml(client, opts.opml, opts.cat or "")
+
     elif opts.file is not None:
         aggregate_file(client, opts.file, opts.cat or "")
+
     elif opts.list is True:
         dump_urls(client, opts.hours, opts.cat or "")
 
@@ -78,10 +84,7 @@ def get_hbase_client():
 def attach_connection(thread):
     thread.hbase = get_hbase_client()
     return thread
-
-def parse_categories(cats):
-    return [x.strip() for x in cats.split(',')]
-
+ 
 def dump_urls(client, hours, cat):
     if hours is None: hours = 24
     if cat == '': cat = '__all__'
@@ -99,99 +102,40 @@ def refresh_feeds(client, allowed_categs):
     Refresh all feeds found in the database using a pool of threads. 
     """
     log.info('Starting to refresh all feeds')
-    scanner = db.Scanner(client, 'Feeds', ['Meta:'])
-
-    allowed_categs = parse_categories(allowed_categs)
-    pool = ThreadPool(10, thread_init=attach_connection) 
-    for row in scanner:
-        feed, categs = row.row, row.columns['Meta:categs'].value
-        if not any_in(parse_categories(categs), allowed_categs):
-            continue
-        pool.queueTask(lambda worker, p:feeds.aggregate(worker.hbase, *p), (feed, categs))
-    pool.joinAll()
+    allowed_categs = split_csv(allowed_categs)
+    def read_data():
+        scanner = db.Scanner(client, 'Feeds', ['Meta:'])
+        for row in scanner:
+            feed, categs = row.row, row.columns['Meta:categs'].value
+            if allowed_categs and not any_in(split_csv(categs), allowed_categs):
+                continue
+            yield feed, categs
+    feeds.aggregate_all(client, read_data(), attach_connection)
 
 def aggregate_file(client, file_path, categs):
     """
     Aggregate all links from a text file
     """
     log.info('Loading from file: %s' % file_path)
-    
-    file = open(file_path)
-    pool = ThreadPool(10, thread_init=attach_connection) 
-    for url in file.xreadlines():
-        pool.queueTask(lambda worker, p:feeds.aggregate(worker.hbase, *p), (url.strip(), categs))
-    pool.joinAll()
+    def read_data():
+        file = open(file_path)
+        for url in file.xreadlines():
+            yield url.strip(), categs
+    feeds.aggregate_all(client, read_data(), attach_connection)
 
 def aggregate_opml(client, file, categs):
     """
     Aggregate all links from an OPML file
-    """
-    loader = OpmlLoader(file)
-    if not loader.is_valid():
-        log.error('Invalid opml file: %s' % file)
-        return
-
+    """ 
     log.info('Loading from file: %s' % file)
-    pool = ThreadPool(10, thread_init=attach_connection)
-    for element in loader:
-        pool.queueTask(lambda worker, p:feeds.aggregate(worker.hbase, *p), (element.xmlUrl, categs))
-    pool.joinAll()
-
-def fetch_feed(feed):
-    """
-    Fetch feed and detect charset. The return result is a  byte string and
-    the encoding information.
-    """
-    from urllib import urlopen
-    import chardet
-    
-    log.info("Fetching feed '%s'" % feed)
-    content = urlopen(feed).read()
-
-    d = chardet.detect(content)
-    log.info("Detected charset: %s" % d['encoding'])
-
-    return smart_str(content, d['encoding'], 'replace'), str(d['encoding'])
-
-def save_feed(client, feed, content, encoding, categs):
-    log.info("Pushing content to hbase 'Feeds' table")
-    data = [
-        db.Mutation(column='Content:raw', value=content),
-        db.Mutation(column='Meta:lasthit', value=str(time.time())),
-        db.Mutation(column='Meta:encoding', value=encoding),
-        db.Mutation(column='Meta:categs', value=str(categs))
-    ]
-    client.mutateRow('Feeds', feed, data)
-
-def save_urls(client, content, encoding, categs):
-    import feedparser
-    log.info('Parsing feed content')
-    data = feedparser.parse(content)
-    for entry in data.entries:
-        url, title = entry.link, entry.title
-        if 'content' in entry:
-            content = entry.content[0].value
-        else:
-            content = ''
-
-        log.info("Adding & indexing: '%s'" % url)
-        if 'updated_parsed' not in entry or entry.updated_parsed is None:
-            continue
-        t = time.mktime(entry.updated_parsed)
-        data = [
-            db.Mutation(column='Content:raw', value=smart_str(content, encoding)),
-            db.Mutation(column='Content:title', value=smart_str(title, encoding)),
-            db.Mutation(column='Meta:updated', value=str(t))
-        ]
-        client.mutateRow('Urls', url, data)
-
-        # XXX warning : avoid having collisions
-        key = datetime.fromtimestamp(t).isoformat()
-        parts = set([x.strip() for x in categs.split(',')])
-        parts.add('__all__')
-        for cat in parts:
-            row = '%s/%s' % (cat,key)
-            client.mutateRow('UrlsIndex', row, [db.Mutation(column='Url', value=smart_str(url))])
+    def read_data():
+        loader = OpmlLoader(file)
+        if not loader.is_valid():
+            log.error('Invalid opml file: %s' % file)
+            return
+        for element in loader:
+            yield element.xmlUrl, categs
+    feeds.aggregate_all(client, read_data(), attach_connection)
 
 if __name__ == '__main__':
     log.basicConfig(level=log.INFO)
