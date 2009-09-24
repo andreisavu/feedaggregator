@@ -33,6 +33,8 @@ def dispatch(opts, args):
         aggregate_opml(client, opts.opml, opts.cat or "")
     elif opts.file is not None:
         aggregate_file(client, opts.file, opts.cat or "")
+    elif opts.list is True:
+        dump_urls(client, opts.hours, opts.cat or "")
 
 def parse_cli():
     """ Setup CLI parser and use it """
@@ -54,6 +56,8 @@ def parse_cli():
         help="feed CATEGORIES. csv format in quotes", metavar="CATEGORIES")
     parser.add_option('', '--hours', dest="hours",
         help="how many HOURS back in time", metavar="HOURS")
+    parser.add_option('-l', '--list', action="store_true", dest='list',
+        help="dump a list of urls from the aggregated feeds", default=False)
     parser.add_option('-w', '--webui', action="store_true",
         dest="webui", default=False, help="start simple web interface")
     
@@ -124,6 +128,18 @@ def any_in(needles, haystack):
 
 def parse_categories(cats):
     return [x.strip() for x in cats.split(',')]
+
+def dump_urls(client, hours, cat):
+    if hours is None: hours = 24
+    if cat == '': cat = '__all__'
+
+    hours = int(hours)
+    dt = datetime.fromtimestamp(time.time() - hours*60*60)
+    start_row = '%s/%s' % (cat, dt.isoformat())
+
+    scanner = db.Scanner(client, 'UrlsIndex', ['Url:'], start_row)
+    for row in scanner:
+        print row.columns['Url:'].value
 
 def refresh_feeds(client, allowed_categs):
     """
