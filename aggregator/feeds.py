@@ -20,12 +20,15 @@ def aggregate(hbase, feed, categs=""):
     except (IOError, db.IllegalArgument), e:
         log.error(e)
 
-def aggregate_all(client, iterator, attach_connection):
+def aggregate_all(client, iterator, connection_factory):
     """
     Aggregate all feeds returned by the generator.
 
     The generator should contain pairs of two elements (feed_url, categories)
     """
+    def attach_connection(thread):
+        thread.hbase = connection_factory()
+        return thread
     pool = ThreadPool(10, thread_init=attach_connection) 
     for feed, categs in iterator:
         pool.queueTask(lambda worker, p:aggregate(worker.hbase, *p), (feed, categs))

@@ -81,10 +81,6 @@ def get_hbase_client():
         log.critical('HBase connection failed')
         sys.exit(1)
 
-def attach_connection(thread):
-    thread.hbase = get_hbase_client()
-    return thread
- 
 def dump_urls(client, hours, cat):
     if hours is None: hours = 24
     if cat == '': cat = '__all__'
@@ -110,7 +106,7 @@ def refresh_feeds(client, allowed_categs):
             if allowed_categs and not any_in(split_csv(categs), allowed_categs):
                 continue
             yield feed, categs
-    feeds.aggregate_all(client, read_data(), attach_connection)
+    feeds.aggregate_all(client, read_data(), get_hbase_client)
 
 def aggregate_file(client, file_path, categs):
     """
@@ -121,7 +117,7 @@ def aggregate_file(client, file_path, categs):
         file = open(file_path)
         for url in file.xreadlines():
             yield url.strip(), categs
-    feeds.aggregate_all(client, read_data(), attach_connection)
+    feeds.aggregate_all(client, read_data(), get_hbase_client)
 
 def aggregate_opml(client, file, categs):
     """
@@ -135,7 +131,7 @@ def aggregate_opml(client, file, categs):
             return
         for element in loader:
             yield element.xmlUrl, categs
-    feeds.aggregate_all(client, read_data(), attach_connection)
+    feeds.aggregate_all(client, read_data(), get_hbase_client)
 
 if __name__ == '__main__':
     log.basicConfig(level=log.INFO)
