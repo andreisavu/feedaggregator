@@ -20,7 +20,7 @@ class ThreadPool:
     accepts tasks that will be dispatched to the next available
     thread."""
     
-    def __init__(self, numThreads, numTasks=0):
+    def __init__(self, numThreads, numTasks=0, thread_init=None):
 
         """Initialize the thread pool with numThreads workers. Limit
 		the maximum number of taks to numTasks or unlimited if 0"""
@@ -32,6 +32,7 @@ class ThreadPool:
         self.__tasks = []
         self.__isJoining = False
         self.__numTasks = numTasks
+        self.__thread_init = thread_init
         self.setThreadCount(numThreads)
 
     def setThreadCount(self, newNumThreads):
@@ -60,6 +61,8 @@ class ThreadPool:
         # If we need to grow the pool, do so
         while newNumThreads > len(self.__threads):
             newThread = ThreadPoolThread(self)
+            if self.__thread_init is not None:
+                newThread = self.__thread_init(newThread)
             self.__threads.append(newThread)
             newThread.start()
         # If we need to shrink the pool, do so
@@ -172,9 +175,9 @@ class ThreadPoolThread(threading.Thread):
             if cmd is None:
                 sleep(ThreadPoolThread.threadSleepTime)
             elif callback is None:
-                cmd(args)
+                cmd(self, args)
             else:
-                callback(cmd(args))
+                callback(cmd(self, args))
     
     def goAway(self):
 
@@ -190,7 +193,7 @@ if __name__ == "__main__":
     # Sample task 1: given a start and end value, shuffle integers,
     # then sort them
     
-    def sortTask(data):
+    def sortTask(worker, data):
         print "SortTask starting for ", data
         numbers = range(data[0], data[1])
         for a in numbers:
@@ -203,7 +206,7 @@ if __name__ == "__main__":
 
     # Sample task 2: just sleep for a number of seconds.
 
-    def waitTask(data):
+    def waitTask(worker, data):
         print "WaitTask starting for ", data
         print "WaitTask sleeping for %d seconds" % data
         sleep(data)

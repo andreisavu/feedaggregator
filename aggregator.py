@@ -107,16 +107,21 @@ def create_urlsindex_table(client):
     except db.AlreadyExists:
         log.error('Table `UrlsIndex` alread exists.')
 
+def attach_connection(thread):
+    thread.hbase = get_hbase_client()
+    return thread
+
 def refresh_feeds(client):
     """
     Refresh all feeds found in the database using a pool of threads. 
     """
     log.info('Starting to refresh all feeds')
     scanner = db.Scanner(client, 'Feeds', ['Meta:'])
-    pool = ThreadPool(5) 
+
+    pool = ThreadPool(50, thread_init=attach_connection) 
     for row in scanner:
         feed, categs = row.row, row.columns['Meta:categs'].value
-        pool.queueTask(lambda p:aggregate_feed(*p), (client, feed, categs))
+        pool.queueTask(lambda worker, p:aggregate_feed(worker.hbase, *p), (feed, categs))
     pool.joinAll()
 
 def aggregate_opml(client, file):
@@ -129,10 +134,9 @@ def aggregate_opml(client, file):
         return
 
     log.info('Loading from file: %s' % file)
-    pool = ThreadPool(5)
+    pool = ThreadPool(50, thread_init=attach_connection)
     for element in loader:
-        # aggregate_feed(client, element.xmlUrl)
-        pool.queueTask(lambda p:aggregate_feed(*p), (client, element.xmlUrl))
+        pool.queueTask(lambda worker, p:aggregate_feed(worker.hbase, *p), (element.xmlUrl, ))
     pool.joinAll()
 
 def aggregate_feed(client, feed, categs=""):
@@ -185,6 +189,8 @@ def save_urls(client, content, encoding, categs):
             content = ''
 
         log.info("Adding & indexing: '%s'" % url)
+        if 'updated_parsed' not in entry or entry.updated_parsed is None:
+            continue
         t = time.mktime(entry.updated_parsed)
         data = [
             db.Mutation(column='Content:raw', value=smart_str(content, encoding)),
