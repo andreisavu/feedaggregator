@@ -47,6 +47,9 @@ def dispatch(opts, args):
     elif opts.list is True:
         dump_urls(client, opts.hours, opts.cat or "")
 
+    elif opts.rss is True:
+        print get_rss(client, opts.hours, opts.cat or "")
+
 def parse_cli():
     """ Setup CLI parser and use it """
     parser = OptionParser()
@@ -69,6 +72,8 @@ def parse_cli():
         help="how many HOURS back in time", metavar="HOURS")
     parser.add_option('-l', '--list', action="store_true", dest='list',
         help="dump a list of urls from the aggregated feeds", default=False)
+    parser.add_option('', '--rss', action='store_true', dest='rss',
+        help="generate aggregate rss", default=False)
     parser.add_option('-w', '--webui', action="store_true",
         dest="webui", default=False, help="start simple web interface")
     
@@ -83,15 +88,47 @@ def get_hbase_client():
         sys.exit(1)
 
 def dump_urls(client, hours, cat):
-    if hours is None: hours = 24
-    if cat == '': cat = '__all__'
-
-    t = time.time() - int(hours)*60*60
-    start_row = build_key(cat, t)
+    """
+    Dump on stdout an aggregated list of urls
+    """
+    t = time.time() - int(hours or 24)*60*60
+    start_row = build_key(cat or '__all__', t)
     
     scanner = db.Scanner(client, 'UrlsIndex', ['Url:'], start_row)
     for row in scanner:
         print row.columns['Url:'].value
+
+def get_rss(client, hours, cat):
+    """
+    Generate and return the aggregate rss feed.
+    """
+    from PyRSS2Gen import RSS2, RSSItem
+    from StringIO import StringIO
+
+    t = time.time() - int(hours or 24)*60*60
+    start_row = build_key(cat or '__all__', t)
+
+    items = []
+    scanner = db.Scanner(client, 'UrlsIndex', ['Url:'], start_row)
+    for row in scanner:
+        url = client.getRow('Urls', row.columns['Url:'].value)[0]
+        items.append(RSSItem(
+            title = url.columns['Content:title'].value,
+            link = url.row,
+            description = url.columns['Content:raw'].value,
+            pubDate = datetime.fromtimestamp(float(url.columns['Meta:updated'].value))
+        ))
+    rss = RSS2(
+        title = 'Aggregated feed',
+        link = 'http://example.com/rss',
+        description = 'Hbase aggregated feed',
+        lastBuildDate = datetime.now(),
+        items = items
+    )
+    out = StringIO()
+    rss.write_xml(out)
+    return out.getvalue()
+
 
 def refresh_feeds(client, allowed_categs):
     """
