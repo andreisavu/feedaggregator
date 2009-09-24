@@ -17,6 +17,7 @@ from aggregator import feeds
 
 from aggregator.threadpool import ThreadPool
 from aggregator.opml import OpmlLoader
+from aggregator.index import build_key
 from aggregator.util import smart_str, any_in, split_csv
 
 from settings import *
@@ -85,10 +86,9 @@ def dump_urls(client, hours, cat):
     if hours is None: hours = 24
     if cat == '': cat = '__all__'
 
-    hours = int(hours)
-    dt = datetime.fromtimestamp(time.time() - hours*60*60)
-    start_row = '%s/%s' % (cat, dt.isoformat())
-
+    t = time.time() - int(hours)*60*60
+    start_row = build_key(cat, t)
+    
     scanner = db.Scanner(client, 'UrlsIndex', ['Url:'], start_row)
     for row in scanner:
         print row.columns['Url:'].value

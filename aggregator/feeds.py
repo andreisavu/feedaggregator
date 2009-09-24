@@ -8,6 +8,7 @@ import db
 
 from threadpool import ThreadPool
 from util import smart_str
+from index import build_key
 
 def aggregate(hbase, feed, categs=""):
     """
@@ -82,12 +83,11 @@ def extract_urls(client, content, encoding, categs):
         ]
         client.mutateRow('Urls', url, data)
 
-        # XXX warning : avoid having collisions
-        key = datetime.fromtimestamp(t).isoformat()
-        parts = set([x.strip() for x in categs.split(',')])
+        parts = set(filter(None, [x.strip() for x in categs.split(',')]))
         parts.add('__all__')
         for cat in parts:
-            row = '%s/%s' % (cat,key)
+            row = build_key(cat, t, url, client, collision_check=True)
+            log.info('Index key: %s' % row)
             client.mutateRow('UrlsIndex', row, [db.Mutation(column='Url', value=smart_str(url))])
 
 
