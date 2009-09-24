@@ -129,7 +129,7 @@ def refresh_feeds(client, allowed_categs):
     scanner = db.Scanner(client, 'Feeds', ['Meta:'])
 
     allowed_categs = parse_categories(allowed_categs)
-    pool = ThreadPool(20, thread_init=attach_connection) 
+    pool = ThreadPool(10, thread_init=attach_connection) 
     for row in scanner:
         feed, categs = row.row, row.columns['Meta:categs'].value
         if not any_in(parse_categories(categs), allowed_categs):
@@ -147,7 +147,7 @@ def aggregate_opml(client, file, categs):
         return
 
     log.info('Loading from file: %s' % file)
-    pool = ThreadPool(20, thread_init=attach_connection)
+    pool = ThreadPool(10, thread_init=attach_connection)
     for element in loader:
         pool.queueTask(lambda worker, p:aggregate_feed(worker.hbase, *p), (element.xmlUrl, categs))
     pool.joinAll()
