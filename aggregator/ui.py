@@ -32,6 +32,7 @@ class hello:
 
 class rss:
     def GET(self):
+        web.header("Content-Type","application/rss+xml")
         input = web.input(c='', h=None)
         return rss_builder(input.h, input.c)
        
