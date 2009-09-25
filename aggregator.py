@@ -117,9 +117,9 @@ def get_rss(client, hours, cat):
     for row in scanner:
         url = client.getRow('Urls', row.columns['Url:'].value)[0]
         items.append(RSSItem(
-            title = url.columns['Content:title'].value,
+            title = url.columns['Content:title'].value.decode('utf-8', 'replace'),
             link = url.row,
-            description = url.columns['Content:raw'].value,
+            description = url.columns['Content:raw'].value.decode('utf-8', 'replace'),
             pubDate = datetime.fromtimestamp(float(url.columns['Meta:updated'].value))
         ))
     rss = RSS2(

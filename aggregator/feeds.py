@@ -87,7 +87,6 @@ def extract_urls(client, content, encoding, categs):
         parts.add('__all__')
         for cat in parts:
             row = build_key(cat, t, url, client, collision_check=True)
-            log.info('Index key: %s' % row)
             client.mutateRow('UrlsIndex', row, [db.Mutation(column='Url', value=smart_str(url))])
 
 
