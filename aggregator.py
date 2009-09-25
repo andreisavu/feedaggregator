@@ -97,10 +97,12 @@ def dump_urls(client, hours, cat):
     """
     t = time.time() - int(hours or 24)*60*60
     start_row = build_key(cat or '__all__', t)
+    stop_row = build_key(cat or '__all__', time.time())
     
-    scanner = db.Scanner(client, 'UrlsIndex', ['Url:'], start_row)
-    for row in scanner:
-        print row.columns['Url:'].value
+    scanner = db.Scanner(client, 'UrlsIndex', ['Url:'], start_row, stop_row)
+    urls = [row.columns['Url:'].value for row in scanner]
+    urls.reverse()
+    for url in urls: print url
 
 def get_rss(client, hours, cat):
     """
@@ -111,9 +113,10 @@ def get_rss(client, hours, cat):
 
     t = time.time() - int(hours or 24)*60*60
     start_row = build_key(cat or '__all__', t)
+    stop_row = build_key(cat or '__all__', time.time())
 
     items = []
-    scanner = db.Scanner(client, 'UrlsIndex', ['Url:'], start_row)
+    scanner = db.Scanner(client, 'UrlsIndex', ['Url:'], start_row, stop_row)
     for row in scanner:
         url = client.getRow('Urls', row.columns['Url:'].value)[0]
         items.append(RSSItem(

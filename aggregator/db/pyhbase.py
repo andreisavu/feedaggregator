@@ -23,14 +23,18 @@ class Scanner(object):
     This object is iterable. 
     """
 
-    def __init__(self, client, table, columns, start_row=''):
+    def __init__(self, client, table, columns, start_row='', stop_row=''):
         self._client = client
         self._table = table
         self._columns = columns
         self._start_row = start_row 
+        self._stop_row = stop_row
     
     def get_rows(self):
-        sid = self._client.scannerOpen(self._table, self._start_row, self._columns)
+        if self._stop_row:
+            sid = self._client.scannerOpenWithStop(self._table, self._start_row, self._stop_row, self._columns)
+        else:
+            sid = self._client.scannerOpen(self._table, self._start_row, self._columns)
         try:
             while True:
                 r = self._client.scannerGet(sid)

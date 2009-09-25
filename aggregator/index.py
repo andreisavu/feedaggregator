@@ -2,6 +2,7 @@
 import logging as log
 
 from time import time
+from datetime import datetime
 
 def add_padding(value, length=15, ch='0'):
     """
@@ -30,7 +31,8 @@ def build_key(cat, timestamp, feed=None, client=None, collision_check=False):
     'cat/000000000000001'
 
     """
-    key = '%s/%s' % (cat, add_padding(int(timestamp)))
+    # key = '%s/%s' % (cat, add_padding(int(timestamp)))
+    key = "%s/%s" % (cat, datetime.fromtimestamp(int(timestamp)).isoformat())
     if collision_check:
         new_key, index = key, 1
         while True:
