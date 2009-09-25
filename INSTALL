@@ -1,0 +1,105 @@
+
+Install steps for Debian linux 5.0 - 64 bit
+-------------------------------------------
+
+This setup instructions are designed to help you setup a development environment.
+
+For 32 bits architecture most of the steps should be similar.
+
+1. Install Python & required libs:
+    
+    sudo apt-get install python python-pyrss2gen python-setuptools python-lxml python-feedparser
+    easy_install web.py
+    easy_install opml
+    
+2. Install Java Sun JDK
+
+    Add this source to /etc/apt/sources.list
+        deb http://ftp.de.debian.org/debian lenny main non-free
+
+    sudo apt-get update
+    sudo apt-get install sun-java6-jdk
+
+    If everything works fine when you type 'java -version' you should see something like this:
+
+        java version "1.6.0_12"
+        Java(TM) SE Runtime Environment (build 1.6.0_12-b04)
+        Java HotSpot(TM) 64-Bit Server VM (build 11.2-b01, mixed mode)
+
+    Set JAVA_HOME by adding the line bellow to ~/.bashrc
+        export JAVA_HOME=/usr/lib/jvm/java-6-sun
+
+3. Install SSH and allow local connections without password
+
+    sudo apt-get install ssh
+    ssh-keygen ( create a key pair with no passphrase )
+    ssh-copy-id localhost ( should ask for you account password )
+    ssh localhost ( should login without asking for a password )
+    
+    Add JAVA_HOME to the ssh environment:
+        http://www.netexpertise.eu/en/ssh/environment-variables-and-ssh.html 
+
+        - Add ‘PermitUserEnvironment yes’ to your sshd_config file and restart the ssh service.
+        - Define JAVA_HOME variable in ~/.ssh/environment 
+
+    After all this steps you should see the following behaviour:
+
+        $ ssh localhost env | grep JAVA_HOME
+        JAVA_HOME=/usr/lib/jvm/java-6-sun
+
+4. Install a standalone version of hbase 0.20.x and start it
+
+    wget http://mirrors.hostingromania.ro/apache.org/hadoop/hbase/hbase-0.20.0/hbase-0.20.0.tar.gz
+    tar xvfz hbase-0.20.0.tar.gz
+    cd hbase-0.20.0/bin
+    ./start-hbase.sh
+    
+    You also need to start a local thrift sever:
+
+    ./hbase thrift start >../thrift.log 2>&1 &
+
+    WARNING: the hbase data files will be locate in your /tmp folder.
+    
+5. Install python thrift
+
+    Install requirements:
+
+        sudo apt-get install libboost-dev automake libtool flex bison pkg-config g++ automake make
+
+    Download and install latest version of thrift:
+
+        wget -O thrift.tgz "http://gitweb.thrift-rpc.org/?p=thrift.git;a=snapshot;h=HEAD;sf=tgz" 
+        tar xvfz thrift.tgz
+        cd thrift
+
+        ./bootstrap.sh
+        ./configure --without-csharp --without-java --without-erlang --without-perl --without-ruby
+        make
+        sudo make install
+
+    After all this the following commands should work just fine:
+
+        $ python 
+        Python 2.5.2 (r252:60911, Jan  4 2009, 21:59:32) 
+        [GCC 4.3.2] on linux2
+        Type "help", "copyright", "credits" or "license" for more information.
+        >>> import thrift
+        >>> 
+
+6. Install git and fetch the feedaggregator master branch from github
+
+    apt-get install git-core
+    
+    git clone git://github.com/andreisavu/feedaggregator.git
+    cd feedaggregator
+    ./aggregator.py --resetdb
+    ./aggregator.py -f http://feeds.feedburner.com/github --cat=blogs
+    ./aggregator.py -f http://twitter.com/statuses/user_timeline/14943648.rss --cat=twitter
+    ./aggregator.py --webui
+
+    Open your browser and go to http://localhost:8080. 
+
+That's all! Have fun!
+
+
+

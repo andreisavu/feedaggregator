@@ -1,16 +1,18 @@
 
-YAFA : Yet Another feed aggregator 
-----------------------------------
+Hbase powered feed aggregator
+-----------------------------
 
-Simple feed aggregator implemented in python. 
-It uses HBase for data storage. 
-
-Schema design
+Install guide
 -------------
 
-Feeds -> Content: Meta:
-Urls  -> Content: Meta:
+See INSTALL for detailed install steps.
 
-UrlsIndex       -> Url
+Hbase schema
+------------
+
+The aggregator is using three tables:
+ - `Feeds` - for storing raw feed and some limited metadata
+ - `Urls` - for storing the extracted urls from the feeds
+ - `UrlsIndex` - an index table used to generate the aggregated feed
 
 

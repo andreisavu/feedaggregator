@@ -1,0 +1,7 @@
+ 
+* hbase thrift client connection pool for webui requests
+* improved charset detection & handling
+
+* allow port change on webui (default: 8080)
+
+
