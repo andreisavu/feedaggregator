@@ -1,0 +1,119 @@
+$def with ()
+<html>
+<head>
+<style type=text/css>
+
+/* inspired from Yahoo reset-min.css Class A browser compatibility defaults */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}ol,ul{list-style:none;}caption,th{text-align:left;}
+fieldset, img {border:0;}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}a img{border: none;}
+
+/* global body container settings */
+body {
+	font-size: 75.01%;
+	line-height: 1.4em;
+	color: #444;
+	background-image: url(/static/images/bak.png);
+background-repeat: no-repeat;
+}
+
+body {
+margin:0px;
+font-family: arial,helvetica,clean,sans-serif;
+}
+.head {
+height: 250px;
+background-image: url(/static/images/bak.png);
+background-repeat: no-repeat;
+background-color: #eee;
+width:100%;
+margin:0px;
+padding-left: 40px;
+border-bottom:1px solid #DDDDDD;
+}
+
+.logo {
+background-image:url(/static/images/feed.png);
+height:77px;
+width:150px;
+display:block;
+margin: 0px;
+}
+.content {
+margin: 0 40px;
+}
+
+.mago {
+background-image:url(/static/images/mago.png);
+height:30px;
+width:124px;
+right:15px;
+top:260px;
+position:absolute;
+}
+
+.power {
+ xxcolor: #ff6c00;
+ font-size: 25px;
+}
+
+.baseline {
+color: #0066cc;
+font-size: 34px;
+margin-top: 15px;
+font-weight:normal;
+}
+
+.title {
+margin-top: 90px;
+}
+.content {
+margin-top: 20px;
+}
+.feed_form {
+	border: 2px solid #ddd;
+	background:#f5f5f5;
+	-moz-border-radius: 7px;
+	padding: 10px;
+	margin-top: 10px;
+	float:left;
+	display:block;
+}
+.sorter {
+font-size: 17px;
+color: #0066cc;
+xxfont-weight:bold;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="head">
+<a class="logo" href=""></a>
+<div class="title">
+<p class="power"><b>Feed Aggregator</b></p>
+<h2 class="baseline"><b>Powered by Hbase</b></h2>
+</div>
+</div>
+<div class="mago"></div>
+
+<div class="content">
+	
+	<a class="sorter" href="/rss">Global aggregated feed</a> (only the latest 24 hours)<br />
+	<br />
+	<div class="feed_form">
+	<form action="/rss" method="GET">
+	<legend>Customize</legend>
+	<label>Category:</label>
+	<input type="text" name="c" />
+	<label>Hours:</label>
+	<input type="text" name="h" />
+	<button type="submit">Do the magic</button>
+	</form>
+	</div>
+</div>
+</body>
+</html>

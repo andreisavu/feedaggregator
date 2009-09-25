@@ -7,28 +7,12 @@ urls = (
     '/rss', 'rss'
 )
 app = web.application(urls, globals())
+render = web.template.render('templates/')
 rss_builder = None
 
 class hello:        
     def GET(self):
-        return """
-<html>
-<head></head>
-<body>
-    <h2>Hbase powered feed aggregator</h2>
-    <a href="/rss">Global aggregated feed</a> (only the latest 24 hours)<br />
-    <br />
-    <form action="/rss" method="GET">
-        <legend>Customize</legend>
-        <label>Category:</label>
-        <input  type="text" name="c" />
-        <label>Hours:</label>
-        <input type="text" name="h" />
-        <button type="submit">Do the magic</button>
-    </form>
-</body>
-</html>
-"""
+        return render.index()
 
 class rss:
     def GET(self):
