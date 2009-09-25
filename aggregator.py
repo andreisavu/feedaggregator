@@ -122,6 +122,7 @@ def get_rss(client, hours, cat):
             description = url.columns['Content:raw'].value.decode('utf-8', 'replace'),
             pubDate = datetime.fromtimestamp(float(url.columns['Meta:updated'].value))
         ))
+    items.reverse()
     rss = RSS2(
         title = 'Aggregated feed',
         link = 'http://example.com/rss',
