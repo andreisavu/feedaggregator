@@ -14,6 +14,7 @@ from datetime import datetime
 
 from aggregator import db
 from aggregator import feeds
+from aggregator import ui
 
 from aggregator.threadpool import ThreadPool
 from aggregator.opml import OpmlLoader
@@ -49,6 +50,9 @@ def dispatch(opts, args):
 
     elif opts.rss is True:
         print get_rss(client, opts.hours, opts.cat or "")
+
+    elif opts.webui is True:
+        ui.start(lambda h=None, c='': get_rss(client, h,c))
 
 def parse_cli():
     """ Setup CLI parser and use it """
