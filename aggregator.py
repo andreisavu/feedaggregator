@@ -15,6 +15,7 @@ from datetime import datetime
 from aggregator import db
 from aggregator import feeds
 from aggregator import ui
+from aggregator import rpc
 
 from aggregator.threadpool import ThreadPool
 from aggregator.opml import OpmlLoader
@@ -54,6 +55,9 @@ def dispatch(opts, args):
     elif opts.webui is True:
         ui.start(lambda h=None, c='': get_rss(client, h,c))
 
+    elif opts.xmlrpc is True:
+        rpc.start(client)
+
 def parse_cli():
     """ Setup CLI parser and use it """
     parser = OptionParser()
@@ -80,6 +84,8 @@ def parse_cli():
         help="generate aggregate rss", default=False)
     parser.add_option('-w', '--webui', action="store_true",
         dest="webui", default=False, help="start simple web interface")
+    parser.add_option('', '--xmlrpc', action="store_true", 
+        dest="xmlrpc", default=False, help="start xmlrpc server")
     
     return parser.parse_args()
 
