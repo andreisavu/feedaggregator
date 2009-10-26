@@ -9,9 +9,6 @@ class TestParser(unittest.TestCase):
         self.fixtures = os.path.join(self.base, 'fixtures')
         self.demo_feed = os.path.join(self.fixtures, 'github.rss')
 
-    def tearDown(self):
-        pass
-
     def testFetchFeed(self):
         from aggregator.feeds import fetch
         content, encoding = fetch(self.demo_feed)
