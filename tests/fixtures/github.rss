@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/atom10full.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
+  <id>tag:github.com,2008:/blog</id>
+  <link type="text/html" rel="alternate" href="http://github.com/blog" />
+  
+  <title>The GitHub Blog</title>
+  <updated>2009-10-25T20:42:55-07:00</updated>
+  <link rel="self" href="http://feeds.feedburner.com/github" type="application/atom+xml" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com" /><entry>
+    <id>tag:github.com,2008:Post/534</id>
+    <published>2009-10-25T20:40:53-07:00</published>
+    <updated>2009-10-25T20:42:55-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/534-github-rebase-29" />
+    <title>GitHub Rebase #29</title>
+    <content type="html">&lt;p&gt;Time to get your Rebase on! Send me a message about your project if you want to see it featured here, and please check out the Rebase &lt;a href="http://rebase.github.com/howto.html"&gt;howto&lt;/a&gt; as well. I&amp;#8217;d love to see more than just web development stuff too. (but don&amp;#8217;t stop that either!) Perhaps a collection of computer graphics related projects? AI? Music? You name it, just &lt;a href="http://github.com/qrush"&gt;send me a message!&lt;/a&gt;&lt;/p&gt;
+&lt;p style="text-align:center;"&gt;&lt;img src="http://cloud.github.com/downloads/rebase/rebase.github.com/GottaGitItOnLP.jpg" alt="" /&gt;&lt;/p&gt;
+&lt;h3&gt;Featured Project&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="http://github.com/subsonic/SubSonic-3.0"&gt;SubSonic&lt;/a&gt;&lt;/strong&gt; is not your average &lt;span class="caps"&gt;ORM&lt;/span&gt; for .&lt;span class="caps"&gt;NET&lt;/span&gt;. This C# library is a veritable workhorse that follows &lt;a href="http://en.wikipedia.org/wiki/Convention_over_configuration"&gt;convention over configuration&lt;/a&gt; and even allows developers to choose different data mapping paradigms, one such being &lt;a href="http://martinfowler.com/eaaCatalog/activeRecord.html"&gt;Active Record&lt;/a&gt;. I wasn&amp;#8217;t kidding about the workhorse bit: out of the box, it&amp;#8217;s got support for &lt;span class="caps"&gt;LINQ&lt;/span&gt;, connecting to multiple DBs, and even a &lt;a href="http://subsonicproject.com/docs/MVC_Starter_Template"&gt;starter app&lt;/a&gt; to get you going. There&amp;#8217;s an unbelievable amount of information on how to use it with your flavor of .&lt;span class="caps"&gt;NET&lt;/span&gt; on &lt;a href="http://subsonicproject.com/docs/"&gt;their wiki&lt;/a&gt;, and definitely check out &lt;a href="http://subsonicproject.com/docs/Comparisons"&gt;how this shapes up&lt;/a&gt; compared to the other available ORMs. Besides, who else can beat screencasts set to &lt;a href="http://subsonicproject.com/docs/The_5_Minute_Demo"&gt;Led Zeppelin&lt;/a&gt; and &lt;a href="http://subsonicproject.com/docs/T4_Templates"&gt;Rush&lt;/a&gt;?&lt;/p&gt;
+&lt;h3&gt;Notably New Projects&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="http://github.com/evanmiller/ChicagoBoss"&gt;ChicagoBoss&lt;/a&gt;&lt;/strong&gt; claims to bring together the best of Rails and Django into the world of Erlang. Sounds neat, but how exactly does that work? Check out the &lt;a href="http://www.chicagoboss.org/example.html"&gt;&lt;span class="caps"&gt;MVC&lt;/span&gt; examples here&lt;/a&gt; and even some fledgling &lt;a href="http://www.chicagoboss.org/api-view.html"&gt;&lt;span class="caps"&gt;API&lt;/span&gt; docs&lt;/a&gt; for how this framework is shaping up. Another neat thing: &lt;a href="http://1978th.net/tokyocabinet/"&gt;Tokyo Tyrant/Cabinet&lt;/a&gt; support is built in, so you can key/value store to the list of buzzwords that Boss already has. Get forking!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="http://github.com/thedarkone/firepicker"&gt;Firepicker&lt;/a&gt;&lt;/strong&gt; is a Firefox extension that adds a color picker into &lt;a href="http://getfirebug.com/"&gt;Firebug&lt;/a&gt;. Now, you won&amp;#8217;t have to fumble around trying to find a specific application on your OS to do this when you&amp;#8217;re playing with &lt;span class="caps"&gt;CSS&lt;/span&gt; in Firebug. Secondly, if you&amp;#8217;re new to &lt;span class="caps"&gt;XUL&lt;/span&gt; and Firefox development in the first place, this is a great project to look at to get started. Check out some screenshots and how to install it &lt;a href="http://thedarkone.github.com/firepicker/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="http://github.com/Papervision3D/Papervision3D"&gt;Papervision3D&lt;/a&gt;&lt;/strong&gt;&amp;#8216;s readme may be short, but don&amp;#8217;t let that deter you. It&amp;#8217;s better if you just &lt;a href="http://www.papervision3d.org/"&gt;go look for yourself.&lt;/a&gt; Ok, so it&amp;#8217;s a fully immersable 3D world written in ActionScript that&amp;#8217;s open source. Whoever the first person to write a game for this environment is, please invite me to your private beach and/or yacht. There could be a ton of neat ways to implement this: perhaps a more 3D StreetView, planetarium, panoramas, the list goes on and on. Papervision&amp;#8217;s &lt;a href="http://dev.papervision3d.org/"&gt;dev blog&lt;/a&gt; has a lot of neat related links too.&lt;/p&gt;</content>
+    <author>
+      <name>qrush</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/532</id>
+    <published>2009-10-21T11:16:35-07:00</published>
+    <updated>2009-10-21T11:27:15-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/532-github-meetup-sf-8" />
+    <title>GitHub Meetup SF #8</title>
+    <content type="html">&lt;center&gt;
+&lt;p&gt;&lt;img src="http://images-0.redbubble.net/img/art/size:large/view:main/2712622-2-blackbird-fly-away.jpg" /&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;Come get your drink on with the people of the Hub at &lt;a href="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;q=blackbird+san+francisco&amp;fb=1&amp;gl=us&amp;hq=blackbird&amp;hnear=san+francisco&amp;cid=0,0,6763374940088794175&amp;ei=_E3fSvCtA4S0swO3ntzdDw&amp;ved=0CAsQnwIwAA&amp;ll=37.768086,-122.429688&amp;spn=0.009736,0.017316&amp;t=h&amp;z=16&amp;iwloc=A"&gt;Blackbird&lt;/a&gt; this Thursday October 22nd at 8pm. Also, be sure to look out for a possible Drinkup:Shanghai, China edition in the next few days- PJ and Scott are headed out for &lt;a href="http://kungfurails.com/"&gt;KungFuRails&lt;/a&gt; right now!&lt;/p&gt;</content>
+    <author>
+      <name>luckiestmonkey</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/531</id>
+    <published>2009-10-20T13:43:17-07:00</published>
+    <updated>2009-10-21T12:21:41-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/531-introducing-bert-and-bert-rpc" />
+    <title>Introducing BERT and BERT-RPC</title>
+    <content type="html">&lt;p&gt;As I detailed in &lt;a href="http://github.com/blog/530-how-we-made-github-fast"&gt;How We Made GitHub Fast&lt;/a&gt;, we have created a new data serialization and &lt;span class="caps"&gt;RPC&lt;/span&gt; protocol to power the GitHub backend. We have big plans for these technologies and I&amp;#8217;d like to take a moment to explain what makes them special and the philosophy behind their creation.&lt;/p&gt;
+&lt;p&gt;The serialization format is called &lt;span class="caps"&gt;BERT&lt;/span&gt; (Binary ERlang Term) and is based on&lt;br /&gt;
+the existing &lt;a href="http://www.erlang.org/doc/apps/erts/erl_ext_dist.html"&gt;external term format&lt;/a&gt; already implemented by Erlang. The &lt;span class="caps"&gt;RPC&lt;/span&gt; protocol is called &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; and is a simple protocol built on top of &lt;span class="caps"&gt;BERT&lt;/span&gt; packets.&lt;/p&gt;
+&lt;p&gt;You can view the current specifications at &lt;a href="http://bert-rpc.org"&gt;http://bert-rpc.org&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is a long article; if you want to see some example code of how easy it is to setup an Erlang/Ruby &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; server and call it from a Ruby &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; client, skip to the end.&lt;/p&gt;
+&lt;h3&gt;How &lt;span class="caps"&gt;BERT&lt;/span&gt; and &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; Came to Be&lt;/h3&gt;
+&lt;p&gt;For the new GitHub architecture, we decided to use a simple &lt;span class="caps"&gt;RPC&lt;/span&gt; mechanism to expose the Git repositories as a service. This allows us to federate users across disparate file servers and eliminates the need for a shared file system.&lt;/p&gt;
+&lt;p&gt;Choosing a data serialization and &lt;span class="caps"&gt;RPC&lt;/span&gt; protocol was a difficult task. My first thought was to look at &lt;a href="http://incubator.apache.org/thrift/"&gt;Thrift&lt;/a&gt; and &lt;a href="http://code.google.com/p/protobuf/"&gt;Protocol Buffers&lt;/a&gt; since they are both gaining traction as modern, low-latency &lt;span class="caps"&gt;RPC&lt;/span&gt; implementations.&lt;/p&gt;
+&lt;p&gt;I had some contact with Thrift when I worked at Powerset, I talk to a lot of people that use Thrift at their jobs, and Scott is using Thrift as part of some Cassandra experiments we&amp;#8217;re doing. As much as I want to like Thrift, I just can&amp;#8217;t. I find the entire concept behind IDLs and code generation abhorrent. Coming from a background in dynamic languages and automated testing, these ideas just seem silly. The developer overhead required to constantly maintain IDLs and keep the corresponding implementation code up to date is too frustrating. I don&amp;#8217;t do these things when I write application code, so why should I be forced to do them when I write &lt;span class="caps"&gt;RPC&lt;/span&gt; code?&lt;/p&gt;
+&lt;p&gt;Protocol Buffers ends up looking very similar to Thrift. More IDLs and more code generation. Any solution that relies on these concepts does not fit well with my worldview. In addition, the set of types available to both Thrift and Protocol Buffers feels limiting compared to what I&amp;#8217;d like to easily transmit over the wire.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.xmlrpc.com/"&gt;&lt;span class="caps"&gt;XML&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt;&lt;/a&gt;, &lt;a href="http://www.w3.org/TR/2003/REC-soap12-part2-20030624/"&gt;&lt;span class="caps"&gt;SOAP&lt;/span&gt;&lt;/a&gt;, and other &lt;span class="caps"&gt;XML&lt;/span&gt; based protocols are hardly even worth mentioning. They are unnecessarily verbose and complex. &lt;span class="caps"&gt;XML&lt;/span&gt; is not convertible to a simple unambiguous data structure in any language I&amp;#8217;ve ever used. I&amp;#8217;ve wasted too many hours of my life clumsily extracting data from &lt;span class="caps"&gt;XML&lt;/span&gt; files to feel anything but animosity towards the format.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://json-rpc.org/"&gt;&lt;span class="caps"&gt;JSON&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt;&lt;/a&gt; is a nice system, much more inline with how I see the world. It&amp;#8217;s simple, relatively compact, has support for a decent set of types, and works well in an agile workflow. A big problem here, though, is the lack of support for native binary data. Our applications will be transmitting large amounts of binary data, and it displeases me to think that every byte of binary data I send across the wire would have to be encoded into an inferior representation just because &lt;span class="caps"&gt;JSON&lt;/span&gt; is a text-based protocol.&lt;/p&gt;
+&lt;p&gt;After becoming thoroughly disenfranchised with the current &amp;#8220;state of the art&amp;#8221; &lt;span class="caps"&gt;RPC&lt;/span&gt; protocols, I sat down and started thinking about what the ideal solution would look like. I came up with a list that looked something like this:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;Extreme simplicity&lt;/li&gt;
+	&lt;li&gt;Dynamic (No IDLs or code generation)&lt;/li&gt;
+	&lt;li&gt;Good set of types (nil, symbols, hashes, bignums, heterogenous arrays, etc)&lt;/li&gt;
+	&lt;li&gt;Support for complex types (Time, Regex, etc)&lt;/li&gt;
+	&lt;li&gt;No need to encode binary data&lt;/li&gt;
+	&lt;li&gt;Synchronous and Asynchronous calls&lt;/li&gt;
+	&lt;li&gt;Fast serialization/deserialization&lt;/li&gt;
+	&lt;li&gt;Streaming (to and from)&lt;/li&gt;
+	&lt;li&gt;Caching directives&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I mentioned before that I like &lt;span class="caps"&gt;JSON&lt;/span&gt;. I love the concept of extracting a subset of a language and using that to facilitate interprocess communication. This got me thinking about the work I&amp;#8217;d done with &lt;a href="http://github.com/mojombo/erlectricity"&gt;Erlectricity&lt;/a&gt;. About two years ago I wrote a C extension for Erlectricity to speed up the deserialization of Erlang&amp;#8217;s external term format. I remember being very impressed with the simplicity of the serialization format and how easy it was to parse. Since I was considering using Erlang more within the GitHub architecture, an Erlang-centric solution might be really nice. Putting these pieces together, I was struck by an idea.&lt;/p&gt;
+&lt;p&gt;What if I extracted the generic parts of Erlang&amp;#8217;s external term format and made that into a standard for interprocess communication? What if Erlang had the equivalent of JavaScript&amp;#8217;s &lt;span class="caps"&gt;JSON&lt;/span&gt;? And what if an &lt;span class="caps"&gt;RPC&lt;/span&gt; protocol could be built on top of that format? What would those things look like and how simple could they be made?&lt;/p&gt;
+&lt;p&gt;Of course, the first thing any project needs is a good name, so I started brainstorming acronyms. &lt;span class="caps"&gt;EETF&lt;/span&gt; (Erlang External Term Format) is the obvious one, but it&amp;#8217;s boring and not accurate for what I wanted to do since I would only be using a subset of &lt;span class="caps"&gt;EETF&lt;/span&gt;. After a while I came up with &lt;span class="caps"&gt;BERT&lt;/span&gt; for Binary ERlang Term. Not only did this moniker precisely describe the nature of the idea, but it was nearly a person&amp;#8217;s name, just like &lt;span class="caps"&gt;JSON&lt;/span&gt;, offering a tip of the hat to my source of inspiration.&lt;/p&gt;
+&lt;p&gt;Over the next few weeks I sketched out specifications for &lt;span class="caps"&gt;BERT&lt;/span&gt; and &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; and showed them to a bunch of my developer friends. I got some great feedback on ways to simplify some confusing parts of the spec and was able to boil things down to what I think is the simplest manifestation that still enables the rich set of features that I want these technologies to support.&lt;/p&gt;
+&lt;p&gt;The responses were generally positive, and I found a lot of people looking for something simple to replace the nightmarish solutions they were currently forced to work with. If there&amp;#8217;s one thing I&amp;#8217;ve learned in doing open source over the last 5 years, it&amp;#8217;s that if I find an idea compelling, then there are probably a boatload of people out there that will feel the same way. So I went ahead with the project and created reference implementations in Ruby that would eventually become the backbone of the new GitHub architecture.&lt;/p&gt;
+&lt;p&gt;But enough talk, let&amp;#8217;s take a look at the Ruby workflow and you&amp;#8217;ll see what I mean when I say that &lt;span class="caps"&gt;BERT&lt;/span&gt; and &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; are built around a philosophy of simplicity and Getting Things Done.&lt;/p&gt;
+&lt;h3&gt;A Simple Example&lt;/h3&gt;
+&lt;p&gt;To give you an idea of how easy it is to get a Ruby based &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; service running, consider the following simple calculator service:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# calc.rb
+require 'ernie'
+
+mod(:calc) do
+  fun(:add) do |a, b|
+    a + b
+  end
+end&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is a complete service file suitable for use by my Erlang/Ruby hybrid &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; server framework called &lt;a href="http://github.com/mojombo/ernie"&gt;Ernie&lt;/a&gt;. You start up the service like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ernie -p 9999 -n 10 -h calc.rb&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This fires up the server on port 9999 and spawns ten Ruby workers to handle requests. Ernie takes care of balancing and queuing incoming connections. All you have to worry about is writing your &lt;span class="caps"&gt;RPC&lt;/span&gt; functions, Ernie takes care of the rest.&lt;/p&gt;
+&lt;p&gt;To call the service, you can use my Ruby &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; client called &lt;a href="http://github.com/mojombo/bertrpc"&gt;&lt;span class="caps"&gt;BERTRPC&lt;/span&gt;&lt;/a&gt; like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;require 'bertrpc'
+
+svc = BERTRPC::Service.new('localhost', 9999)
+svc.call.calc.add(1, 2)
+# =&amp;gt; 3&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That&amp;#8217;s it! Nine lines of code to a working example. No IDLs. No code generation. If the module and function that you call from the client exist on the server, then everything goes well. If they don&amp;#8217;t, then you get an exception, just like your application code.&lt;/p&gt;
+&lt;p&gt;Since a &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; client can be written in any language, you could easily call the calculator service from Python or JavaScript or Lua or whatever. &lt;span class="caps"&gt;BERT&lt;/span&gt; and &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; are intended to make communicating between different languages as streamlined as possible.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;The Ernie framework and the &lt;span class="caps"&gt;BERTRPC&lt;/span&gt; library power the new GitHub and we use them exactly as-is. They&amp;#8217;ve been in use since the move to Rackspace three weeks ago and are responsible for serving over 300 million &lt;span class="caps"&gt;RPC&lt;/span&gt; requests in that period. They are still incomplete implementations of the spec, but I plan to flesh them out as time goes on.&lt;/p&gt;
+&lt;p&gt;If you find &lt;span class="caps"&gt;BERT&lt;/span&gt; and &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; intriguing, I&amp;#8217;d love to hear your feedback. The best place to hold discussions is on the &lt;a href="http://groups.google.com/group/bert-rpc"&gt;official mailing list&lt;/a&gt;. If you want to participate, I&amp;#8217;d love to see implementations in more languages. Together, we can make &lt;span class="caps"&gt;BERT&lt;/span&gt; and &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; the easiest way to get &lt;span class="caps"&gt;RPC&lt;/span&gt; done in every language!&lt;/p&gt;</content>
+    <author>
+      <name>mojombo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/530</id>
+    <published>2009-10-20T11:54:03-07:00</published>
+    <updated>2009-10-21T10:08:08-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/530-how-we-made-github-fast" />
+    <title>How We Made GitHub Fast</title>
+    <content type="html">&lt;p&gt;Now that things have settled down from the move to Rackspace, I wanted to take some time to go over the architectural changes that we&amp;#8217;ve made in order to bring you a speedier, more scalable GitHub.&lt;/p&gt;
+&lt;p&gt;In my first draft of this article I spent a lot of time explaining why we made each of the technology choices that we did. After a while, however, it became difficult to separate the architecture from the discourse and the whole thing became confusing. So I&amp;#8217;ve decided to simply explain the architecture and then write a series of follow up posts with more detailed analyses of exactly why we made the choices we did.&lt;/p&gt;
+&lt;p&gt;There are many ways to scale modern web applications. What I will be describing here is the method that we chose. This should by no means be considered the only way to scale an application. Consider it a case study of what worked for us given our unique requirements.&lt;/p&gt;
+&lt;h3&gt;Understanding the Protocols&lt;/h3&gt;
+&lt;p&gt;We expose three primary protocols to end users of GitHub: &lt;span class="caps"&gt;HTTP&lt;/span&gt;, &lt;span class="caps"&gt;SSH&lt;/span&gt;, and Git. When browsing the site with your favorite browser, you&amp;#8217;re using &lt;span class="caps"&gt;HTTP&lt;/span&gt;. When you clone, pull, or push to a private &lt;span class="caps"&gt;URL&lt;/span&gt; like &lt;span style="background-color:#ddd; padding: 0 .2em; font: 90% Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;"&gt;git&amp;#64;github.com:mojombo/jekyll.git&lt;/span&gt; you&amp;#8217;re doing so via &lt;span class="caps"&gt;SSH&lt;/span&gt;. When you clone or pull from a public repository via a &lt;span class="caps"&gt;URL&lt;/span&gt; like &lt;code&gt;git://github.com/mojombo/jekyll.git&lt;/code&gt; you&amp;#8217;re using the Git protocol.&lt;/p&gt;
+&lt;p&gt;The easiest way to understand the architecture is by tracing how each of these requests propagates through the system.&lt;/p&gt;
+&lt;h3&gt;Tracing an &lt;span class="caps"&gt;HTTP&lt;/span&gt; Request&lt;/h3&gt;
+&lt;p&gt;For this example I&amp;#8217;ll show you how a request for a tree page such as &lt;a href="http://github.com/mojombo/jekyll"&gt;http://github.com/mojombo/jekyll&lt;/a&gt; happens.&lt;/p&gt;
+&lt;p&gt;The first thing your request hits after coming down from the internet is the active load balancer. For this task we use a pair of Xen instances running &lt;a href="http://www.vergenet.net/linux/ldirectord/"&gt;ldirectord&lt;/a&gt;. These are called &lt;code&gt;lb1a&lt;/code&gt; and &lt;code&gt;lb1b&lt;/code&gt;. At any given time one of these is active and the other is waiting to take over in case of a failure in the master. The load balancer doesn&amp;#8217;t do anything fancy. It forwards &lt;span class="caps"&gt;TCP&lt;/span&gt; packets to various servers based on the requested IP and port and can remove misbehaving servers from the balance pool if necessary. In the event that no servers are available for a given pool it can serve a simple static site instead of refusing connections.&lt;/p&gt;
+&lt;p&gt;For requests to the main website, the load balancer ships your request off to one of the four frontend machines. Each of these is an 8 core, 16GB &lt;span class="caps"&gt;RAM&lt;/span&gt; bare metal server. Their names are &lt;code&gt;fe1&lt;/code&gt;, &amp;#8230;, &lt;code&gt;fe4&lt;/code&gt;. &lt;a href="http://nginx.net/"&gt;Nginx&lt;/a&gt; accepts the connection and sends it to a Unix domain socket upon which sixteen &lt;a href="http://github.com/blog/517-unicorn"&gt;Unicorn&lt;/a&gt; worker processes are selecting. One of these workers grabs the request and runs the &lt;a href="http://rubyonrails.org/"&gt;Rails&lt;/a&gt; code necessary to fulfill it.&lt;/p&gt;
+&lt;p&gt;Many pages require database lookups. Our MySQL database runs on two 8 core, 32GB &lt;span class="caps"&gt;RAM&lt;/span&gt; bare metal servers with 15k &lt;span class="caps"&gt;RPM&lt;/span&gt; &lt;span class="caps"&gt;SAS&lt;/span&gt; drives. Their names are &lt;code&gt;db1a&lt;/code&gt; and &lt;code&gt;db1b&lt;/code&gt;. At any given time, one of them is master and one is slave. MySQL replication is accomplished via &lt;a href="http://www.drbd.org/"&gt;&lt;span class="caps"&gt;DRBD&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If the page requires information about a Git repository and that data is not cached, then it will use our &lt;a href="http://github.com/mojombo/grit"&gt;Grit&lt;/a&gt; library to retrieve the data. In order to accommodate our Rackspace setup, we&amp;#8217;ve modified Grit to do something special. We start by abstracting out every call that needs access to the filesystem into the Grit::Git object. We then replace Grit::Git with a stub that makes &lt;span class="caps"&gt;RPC&lt;/span&gt; calls to our Smoke service. Smoke has direct disk access to the repositories and essentially presents Grit::Git as a service. It&amp;#8217;s called Smoke because Smoke is just Grit in the cloud. Get it?&lt;/p&gt;
+&lt;p&gt;The stubbed Grit makes &lt;span class="caps"&gt;RPC&lt;/span&gt; calls to &lt;code&gt;smoke&lt;/code&gt; which is a load balanced hostname that maps back to the &lt;code&gt;fe&lt;/code&gt; machines. Each frontend runs four &lt;a href="http://github.com/mojombo/proxymachine"&gt;ProxyMachine&lt;/a&gt; instances behind &lt;a href="http://haproxy.1wt.eu/"&gt;HAProxy&lt;/a&gt; that act as routing proxies for Smoke calls. ProxyMachine is my content aware (layer 7) &lt;span class="caps"&gt;TCP&lt;/span&gt; routing proxy that lets us write the routing logic in Ruby. The proxy examines the request and extracts the username of the repository that has been specified. We then use a proprietary library called Chimney (it routes the smoke!) to lookup the route for that user. A user&amp;#8217;s route is simply the hostname of the file server on which that user&amp;#8217;s repositories are kept.&lt;/p&gt;
+&lt;p&gt;Chimney finds the route by making a call to &lt;a href="http://code.google.com/p/redis/"&gt;Redis&lt;/a&gt;. Redis runs on the database servers. We use Redis as a persistent key/value store for the routing information and a variety of other data.&lt;/p&gt;
+&lt;p&gt;Once the Smoke proxy has determined the user&amp;#8217;s route, it establishes a transparent proxy to the proper file server. We have four pairs of fileservers. Their names are &lt;code&gt;fs1a&lt;/code&gt;, &lt;code&gt;fs1b&lt;/code&gt;, &amp;#8230;, &lt;code&gt;fs4a&lt;/code&gt;, &lt;code&gt;fs4b&lt;/code&gt;. These are 8 core, 16GB &lt;span class="caps"&gt;RAM&lt;/span&gt; bare metal servers, each with six 300GB 15K &lt;span class="caps"&gt;RPM&lt;/span&gt; &lt;span class="caps"&gt;SAS&lt;/span&gt; drives arranged in &lt;span class="caps"&gt;RAID&lt;/span&gt; 10. At any given time one server in each pair is active and the other is waiting to take over should there be a fatal failure in the master. All repository data is constantly replicated from the master to the slave via &lt;span class="caps"&gt;DRBD&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Every file server runs two &lt;a href="http://github.com/mojombo/ernie"&gt;Ernie&lt;/a&gt; &lt;span class="caps"&gt;RPC&lt;/span&gt; servers behind HAProxy. Each Ernie spawns 15 Ruby workers. These workers take the &lt;span class="caps"&gt;RPC&lt;/span&gt; call and reconstitute and perform the Grit call. The response is sent back through the Smoke proxy to the Rails app where the Grit stub returns the expected Grit response.&lt;/p&gt;
+&lt;p&gt;When Unicorn is finished with the Rails action, the response is sent back through Nginx and directly to the client (outgoing responses do not go back through the load balancer).&lt;/p&gt;
+&lt;p&gt;Finally, you see a pretty web page!&lt;/p&gt;
+&lt;p&gt;The above flow is what happens when there are no cache hits. In many cases the Rails code uses Evan Weaver&amp;#8217;s Ruby &lt;a href="http://github.com/fauna/memcached/"&gt;memcached&lt;/a&gt; client to query the &lt;a href="http://www.danga.com/memcached/"&gt;Memcache&lt;/a&gt; servers that run on each slave file server. Since these machines are otherwise idle, we place 12GB of Memcache on each. These servers are aliased as &lt;code&gt;memcache1&lt;/code&gt;, &amp;#8230;, &lt;code&gt;memcache4&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;&lt;span class="caps"&gt;BERT&lt;/span&gt; and &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;For our data serialization and &lt;span class="caps"&gt;RPC&lt;/span&gt; protocol we are using &lt;span class="caps"&gt;BERT&lt;/span&gt; and &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt;. You haven&amp;#8217;t heard of them before because they&amp;#8217;re brand new. I invented them because I was not satisfied with any of the available options that I evaluated, and I wanted to experiment with an idea that I&amp;#8217;ve had for a while. Before you freak out about &lt;span class="caps"&gt;NIH&lt;/span&gt; syndrome (or to help you refine your freak out), please read my accompanying article &lt;a href="http://github.com/blog/531-introducing-bert-and-bert-rpc"&gt;Introducing &lt;span class="caps"&gt;BERT&lt;/span&gt; and &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt;&lt;/a&gt; about how these technologies came to be and what I intend for them to solve.&lt;/p&gt;
+&lt;p&gt;If you&amp;#8217;d rather just check out the spec, head over to &lt;a href="http://bert-rpc.org"&gt;http://bert-rpc.org&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For the code hungry, check out my Ruby &lt;span class="caps"&gt;BERT&lt;/span&gt; serialization library &lt;a href="http://github.com/mojombo/bert"&gt;&lt;span class="caps"&gt;BERT&lt;/span&gt;&lt;/a&gt;, my Ruby &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; client &lt;a href="http://github.com/mojombo/bertrpc"&gt;&lt;span class="caps"&gt;BERTRPC&lt;/span&gt;&lt;/a&gt;, and my Erlang/Ruby hybrid &lt;span class="caps"&gt;BERT&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; server &lt;a href="http://github.com/mojombo/ernie"&gt;Ernie&lt;/a&gt;. These are the exact libraries we use at GitHub to serve up all repository data.&lt;/p&gt;
+&lt;h3&gt;Tracing an &lt;span class="caps"&gt;SSH&lt;/span&gt; Request&lt;/h3&gt;
+&lt;p&gt;Git uses &lt;span class="caps"&gt;SSH&lt;/span&gt; for encrypted communications between you and the server. In order to understand how our architecture deals with &lt;span class="caps"&gt;SSH&lt;/span&gt; connections, it is first important to understand how this works in a simpler setup.&lt;/p&gt;
+&lt;p&gt;Git relies on the fact that &lt;span class="caps"&gt;SSH&lt;/span&gt; allows you to execute commands on a remote server. For instance, the command &lt;span style="background-color:#ddd; padding: 0 .2em; font: 90% Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;"&gt;ssh tom&amp;#64;frost ls -al&lt;/span&gt; runs &lt;code&gt;ls -al&lt;/code&gt; in the home directory of my user on the &lt;code&gt;frost&lt;/code&gt; server. I get the output of the command on my local terminal. &lt;span class="caps"&gt;SSH&lt;/span&gt; is essentially hooking up the &lt;span class="caps"&gt;STDIN&lt;/span&gt;, &lt;span class="caps"&gt;STDOUT&lt;/span&gt;, and &lt;span class="caps"&gt;STDERR&lt;/span&gt; of the remote machine to my local terminal.&lt;/p&gt;
+&lt;p&gt;If you run a command like &lt;span style="background-color:#ddd; padding: 0 .2em; font: 90% Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;"&gt;git clone tom&amp;#64;frost:mojombo/bert&lt;/span&gt;, what Git is doing behind the scenes is SSHing to &lt;code&gt;frost&lt;/code&gt;, authenticating as the &lt;code&gt;tom&lt;/code&gt; user, and then remotely executing &lt;code&gt;git upload-pack mojombo/bert&lt;/code&gt;. Now your client can talk to that process on the remote server by simply reading and writing over the &lt;span class="caps"&gt;SSH&lt;/span&gt; connection. Neat, huh?&lt;/p&gt;
+&lt;p&gt;Of course, allowing arbitrary execution of commands is unsafe, so &lt;span class="caps"&gt;SSH&lt;/span&gt; includes the ability to restrict what commands can be executed. In a very simple case, you can restrict execution to &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-shell.html"&gt;git-shell&lt;/a&gt; which is included with Git. All this script does is check the command that you&amp;#8217;re trying to execute and ensure that it&amp;#8217;s one of &lt;code&gt;git upload-pack&lt;/code&gt;, &lt;code&gt;git receive-pack&lt;/code&gt;, or &lt;code&gt;git upload-archive&lt;/code&gt;. If it is indeed one of those, it uses &lt;a href="http://linux.die.net/man/3/exec" title="3"&gt;exec&lt;/a&gt; to replace the current process with that new process. After that, it&amp;#8217;s as if you had just executed that command directly.&lt;/p&gt;
+&lt;p&gt;So, now that you know how Git&amp;#8217;s &lt;span class="caps"&gt;SSH&lt;/span&gt; operations work in a simple case, let me show you how we handle this in GitHub&amp;#8217;s architecture.&lt;/p&gt;
+&lt;p&gt;First, your Git client initiates an &lt;span class="caps"&gt;SSH&lt;/span&gt; session. The connection comes down off the internet and hits our load balancer.&lt;/p&gt;
+&lt;p&gt;From there, the connection is sent to one of the frontends where &lt;a href="http://www.au.kernel.org/software/scm/git/docs/git-daemon.html"&gt;&lt;span class="caps"&gt;SSHD&lt;/span&gt;&lt;/a&gt; accepts it. We have patched our &lt;span class="caps"&gt;SSH&lt;/span&gt; daemon to perform public key lookups from our MySQL database. Your key identifies your GitHub user and this information is sent along with the original command and arguments to our proprietary script called Gerve (Git sERVE). Think of Gerve as a super smart version of &lt;code&gt;git-shell&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Gerve verifies that your user has access to the repository specified in the arguments. If you are the owner of the repository, no database lookups need to be performed, otherwise several &lt;span class="caps"&gt;SQL&lt;/span&gt; queries are made to determine permissions.&lt;/p&gt;
+&lt;p&gt;Once access has been verified, Gerve uses Chimney to look up the route for the owner of the repository. The goal now is to execute your original command on the proper file server and hook your local machine up to that process. What better way to do this than with another remote &lt;span class="caps"&gt;SSH&lt;/span&gt; execution!&lt;/p&gt;
+&lt;p&gt;I know it sounds crazy but it works great. Gerve simply uses &lt;code&gt;exec(3)&lt;/code&gt; to replace itself with a call to&lt;span style="background-color:#ddd; padding: 0 .2em; font: 90% Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;"&gt;ssh git&amp;#64;&amp;lt;route&amp;gt; &amp;lt;command&amp;gt; &amp;lt;arg&amp;gt;&lt;/span&gt;. After this call, your client is hooked up to a process on a frontend machine which is, in turn, hooked up to a process on a file server.&lt;/p&gt;
+&lt;p&gt;Think of it this way: after determining permissions and the location of the repository, the frontend becomes a transparent proxy for the rest of the session. The only drawback to this approach is that the internal &lt;span class="caps"&gt;SSH&lt;/span&gt; is unnecessarily encumbered by the overhead of encryption/decryption when none is strictly required. It&amp;#8217;s possible we may replace this this internal &lt;span class="caps"&gt;SSH&lt;/span&gt; call with something more efficient, but this approach is just too damn simple (and still very fast) to make me worry about it very much.&lt;/p&gt;
+&lt;h3&gt;Tracing a Git Request&lt;/h3&gt;
+&lt;p&gt;Performing public clones and pulls via Git is similar to how the &lt;span class="caps"&gt;SSH&lt;/span&gt; method works. Instead of using &lt;span class="caps"&gt;SSH&lt;/span&gt; for authentication and encryption, however, it relies on a server side &lt;a href="http://www.au.kernel.org/software/scm/git/docs/git-daemon.html"&gt;Git Daemon&lt;/a&gt;. This daemon accepts connections, verifies the command to be run, and then uses &lt;code&gt;fork(2)&lt;/code&gt; and &lt;code&gt;exec(3)&lt;/code&gt; to spawn a worker that then becomes the command process.&lt;/p&gt;
+&lt;p&gt;With this in mind, I&amp;#8217;ll show you how a public clone operation works.&lt;/p&gt;
+&lt;p&gt;First, your Git client issues a &lt;a href="http://github.com/mojombo/egitd/blob/master/docs/protocol.txt"&gt;request&lt;/a&gt; containing the command and repository name you wish to clone. This request enters our system on the load balancer.&lt;/p&gt;
+&lt;p&gt;From there, the request is sent to one of the frontends. Each frontend runs four ProxyMachine instances behind HAProxy that act as routing proxies for the Git protocol. The proxy inspects the request and extracts the username (or gist name) of the repo. It then uses Chimney to lookup the route. If there is no route or any other error is encountered, the proxy speaks the Git protocol and sends back an appropriate messages to the client. Once the route is known, the repo name (e.g. &lt;code&gt;mojombo/bert&lt;/code&gt;) is translated into its path on disk (e.g. &lt;code&gt;a/a8/e2/95/mojombo/bert.git&lt;/code&gt;). On our old setup that had no proxies, we had to use a modified daemon that could convert the user/repo into the correct filepath. By doing this step in the proxy, we can now use an unmodified daemon, allowing for a much easier upgrade path.&lt;/p&gt;
+&lt;p&gt;Next, the Git proxy establishes a transparent proxy with the proper file server and sends the modified request (with the converted repository path). Each file server runs two Git Daemon processes behind HAProxy. The daemon speaks the pack file protocol and streams data back through the Git proxy and directly to your Git client.&lt;/p&gt;
+&lt;p&gt;Once your client has all the data, you&amp;#8217;ve cloned the repository and can get to work!&lt;/p&gt;
+&lt;h3&gt;Sub- and Side-Systems&lt;/h3&gt;
+&lt;p&gt;In addition to the primary web application and Git hosting systems, we also run a variety of other sub-systems and side-systems. Sub-systems include the job queue, archive downloads, billing, mirroring, and the svn importer. Side-systems include GitHub Pages, Gist, gem server, and a bunch of internal tools. You can look forward to explanations of how some of these work within the new architecture, and what new technologies we&amp;#8217;ve created to help our application run more smoothly.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;The architecture outlined here has allowed us to properly scale the site and resulted in massive performance increases across the entire site. Our average Rails response time on our previous setup was anywhere from 500ms to several seconds depending on how loaded the slices were. Moving to bare metal and federated storage on Rackspace has brought our average Rails response time to consistently under 100ms. In addition, the job queue now has no problem keeping up with the 280,000 background jobs we process every day. We still have plenty of headroom to grow with the current set of hardware, and when the time comes to add more machines, we can add new servers on any tier with ease. I&amp;#8217;m very pleased with how well everything is working, and if you&amp;#8217;re like me, you&amp;#8217;re enjoying the new and improved GitHub every day!&lt;/p&gt;</content>
+    <author>
+      <name>mojombo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/529</id>
+    <published>2009-10-19T09:37:58-07:00</published>
+    <updated>2009-10-19T10:04:52-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/529-ryan-tomayko-is-a-githubber" />
+    <title>Ryan Tomayko is a GitHubber</title>
+    <content type="html">&lt;p&gt;Today marks &lt;a href="http://github.com/rtomayko"&gt;Ryan Tomayko&amp;#8217;s&lt;/a&gt; first day as a GitHubber. He&amp;#8217;ll be helping make GitHub more stable, reliable, and awesome.&lt;/p&gt;
+&lt;p&gt;Ryan has consistently impressed all of us with his work on &lt;a href="http://github.com/sinatra/sinatra"&gt;Sinatra&lt;/a&gt; and &lt;a href="http://github.com/rack/rack"&gt;Rack&lt;/a&gt;, the awesomeness of &lt;a href="http://github.com/rtomayko/shotgun"&gt;shotgun&lt;/a&gt; and &lt;a href="http://github.com/rtomayko/git-sh"&gt;git-sh&lt;/a&gt;, his prolific &lt;a href="http://tomayko.com/"&gt;writing and linking&lt;/a&gt;, and his various other projects.&lt;/p&gt;
+&lt;div align="center"&gt;&lt;a href="http://github.com/rtomayko"&gt;&lt;img src="http://img.skitch.com/20091019-rxbm5925t37sjtxik2u7m4wj5a.jpg"/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div align="center" xmlns:cc="http://creativecommons.org/ns#" about="http://www.flickr.com/photos/mojombo/3625905407/in/set-72157619744233018/"&gt;&lt;a rel="cc:attributionURL" href="http://www.flickr.com/photos/mojombo/"&gt;http://www.flickr.com/photos/mojombo/&lt;/a&gt; / &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/"&gt;CC BY-NC-SA 2.0&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;You can follow &lt;a href="http://tomayko.com/"&gt;his blog&lt;/a&gt;, &lt;a href="http://twitter.com/rtomayko"&gt;his twitter&lt;/a&gt;, or &lt;a href="http://github.com/rtomayko"&gt;his GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Welcome to the team, Ryan!&lt;/p&gt;</content>
+    <author>
+      <name>defunkt</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/528</id>
+    <published>2009-10-18T18:51:27-07:00</published>
+    <updated>2009-10-19T00:16:07-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/528-scheduled-maintenance-tonight-at-23-00-pdt" />
+    <title>Scheduled Maintenance Tonight at 23:00 PDT</title>
+    <content type="html">&lt;p&gt;We will be having a maintenance window tonight from &lt;a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=10&amp;amp;day=18&amp;amp;year=2009&amp;amp;hour=23&amp;amp;min=0&amp;amp;sec=0&amp;amp;p1=224"&gt;23:00 to 23:59 &lt;span class="caps"&gt;PDT&lt;/span&gt;&lt;/a&gt;. A very small amount of web unavailability will be required during this period.&lt;/p&gt;
+&lt;p&gt;We will be upgrading some core libraries to versions that are not compatible with what is currently running, so all daemons must be restarted simultaneously. For this to go smoothly, we will be disabling the web app for perhaps 30 seconds.&lt;/p&gt;
+&lt;p&gt;&lt;span class="caps"&gt;UPDATE&lt;/span&gt;: Maintenance was completed successfully. Total web unavailability was a tad more than estimated at one minute and 40 seconds. Some job runners did not restart cleanly and as a result some jobs failed, but all job runners are operating normally now. If you experienced any problems during the maintenance window, don&amp;#8217;t hesitate to contact us at &lt;a href="http://support.github.com"&gt;http://support.github.com&lt;/a&gt;.&lt;/p&gt;</content>
+    <author>
+      <name>mojombo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/527</id>
+    <published>2009-10-16T09:38:50-07:00</published>
+    <updated>2009-10-16T09:39:53-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/527-helping-with-texting" />
+    <title>Helping with Texting</title>
+    <content type="html">&lt;p&gt;&lt;a href="http://unicefinnovation.org/"&gt;&lt;span class="caps"&gt;UNICEF&lt;/span&gt;&lt;/a&gt; is using &lt;span class="caps"&gt;SMS&lt;/span&gt; to help those in need. And they&amp;#8217;re doing it with open source.&lt;/p&gt;
+&lt;p&gt;You can read all about &lt;a href="http://www.rapidsms.org/"&gt;RapidSMS&lt;/a&gt;, their &lt;a href="http://unicefinnovation.org/mobile-and-sms.php"&gt;Mobile and &lt;span class="caps"&gt;SMS&lt;/span&gt; platform&lt;/a&gt;, but here&amp;#8217;s a snippet:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The impact a RapidSMS implementation has on UNICEF&amp;#8217;s work practices is dramatic. In October 2008, Ethiopia experienced crippling droughts. Faced with the possibility of famine, &lt;span class="caps"&gt;UNICEF&lt;/span&gt; Ethiopia launched a massive food distribution program to supply the high-protein food Plumpy&amp;#8217;nut to under-nourished children at more than 1,800 feeding centres in the country. Previously, &lt;span class="caps"&gt;UNICEF&lt;/span&gt; monitored the distribution of food by sending a small set of individuals who traveled to each feeding center. The monitor wrote down the amount of food that was received, was distributed, and if more food was needed. There had been a two week to two month delay between the collection of that data and analysis, prolonging action. In a famine situation each day can mean the difference between recovery, starvation, or even death.&lt;/p&gt;
+&lt;p&gt;The Ethiopian implementation of RapidSMS completely eliminated the delay. After a short training session the monitors would enter information directly into their mobile phones as &lt;span class="caps"&gt;SMS&lt;/span&gt; messages. This data would instantaneously appear on the server and immediately be visualized into graphs showing potential distribution problem and displayed on a map clearly showing where the problems were. The data could be seen, not only by the field office, but by the regional office, supply division and even headquarters, greatly improving response coordination. The process of entering the data into phones was also easier and more cost effective for the monitors themselves leading to quick adoption of the technology.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;What a great use of technology. The site says, &amp;#8220;&lt;span class="caps"&gt;GSMA&lt;/span&gt; [predicts] that by 2010, 90% of the world will be covered by mobile networks.&amp;#8221; Seems like &lt;span class="caps"&gt;SMS&lt;/span&gt; is going to become more important and more ubiquitous in the future.&lt;/p&gt;
+&lt;p&gt;Check out the &lt;a href="http://www.rapidsms.org/"&gt;RapidSMS home page&lt;/a&gt; or browse the source, right here on GitHub: &lt;a href="http://github.com/rapidsms/rapidsms"&gt;http://github.com/rapidsms/rapidsms&lt;/a&gt;&lt;/p&gt;</content>
+    <author>
+      <name>defunkt</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/526</id>
+    <published>2009-10-15T15:16:58-07:00</published>
+    <updated>2009-10-15T15:19:03-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/526-scheduled-maintenance-tonight-at-22-00-pdt" />
+    <title>Scheduled Maintenance Tonight at 22:00 PDT</title>
+    <content type="html">&lt;p&gt;We&amp;#8217;re having another maintenance window tonight from &lt;a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=10&amp;amp;day=15&amp;amp;year=2009&amp;amp;hour=22&amp;amp;min=0&amp;amp;sec=0&amp;amp;p1=224"&gt;22:00 to 23:00 &lt;span class="caps"&gt;PDT&lt;/span&gt;&lt;/a&gt;. We will be installing and testing the &amp;#8220;sorry server&amp;#8221; that will be enabled if no frontends are available to serve requests. Instead of just refusing connections, this server will point you to the Twitter status feed and display information on surviving when GitHub is down. In order to test that everything is working properly we will need to deliberately remove all the frontends from the load balancer for a small period. Git and &lt;span class="caps"&gt;SSH&lt;/span&gt; access to repositories will be unaffected during this period.&lt;/p&gt;</content>
+    <author>
+      <name>mojombo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/525</id>
+    <published>2009-10-15T09:50:22-07:00</published>
+    <updated>2009-10-15T09:50:30-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/525-github-ribbon-in-css" />
+    <title>GitHub Ribbon in CSS</title>
+    <content type="html">&lt;p&gt;&lt;a href="http://github.com/jbalogh"&gt;jbalogh&lt;/a&gt; has a write up on how to implement &lt;a href="http://github.com/blog/273-github-ribbons"&gt;GitHub&amp;#8217;s Ribbons&lt;/a&gt; in pure &lt;span class="caps"&gt;CSS&lt;/span&gt;: &lt;a href="http://people.mozilla.com/%7Ejbalogh/ribbon/ribbon.html"&gt;Redoing the GitHub Ribbon in &lt;span class="caps"&gt;CSS&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div align="center"&gt;&lt;a href="http://people.mozilla.com/%7Ejbalogh/ribbon/ribbon.html"&gt;&lt;img src="http://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Daniel Perez Alvarez has a &lt;a href="http://unindented.org/articles/2009/10/github-ribbon-using-css-transforms/"&gt;similar writeup&lt;/a&gt; which includes a nice &amp;#8220;supported browsers&amp;#8221; table. Awesome work!&lt;/p&gt;</content>
+    <author>
+      <name>defunkt</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/524</id>
+    <published>2009-10-14T10:02:32-07:00</published>
+    <updated>2009-10-14T10:03:11-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/524-tuaw-on-github" />
+    <title>TUAW on GitHub</title>
+    <content type="html">&lt;p&gt;&lt;a href="http://www.tuaw.com/"&gt;The Unofficial Apple Weblog&lt;/a&gt;, or &lt;span class="caps"&gt;TUAW&lt;/span&gt;, is now on GitHub: &lt;a href="http://github.com/tuaw"&gt;http://github.com/tuaw&lt;/a&gt;&lt;/p&gt;
+&lt;div align="center"&gt;&lt;a href="http://github.com/tuaw"&gt;&lt;img src="http://img.skitch.com/20091014-p9c85ngu2yrhsr7jnrd888ex6.png"/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;While there&amp;#8217;s nothing there &lt;em&gt;yet&lt;/em&gt;, they only announced the account yesterday and said &lt;a href="http://www.tuaw.com/2009/10/13/tuaw-is-now-on-github/"&gt;in the post&lt;/a&gt;, &amp;#8220;This is where you&amp;#8217;ll be able to find code for our developer-related posts. We&amp;#8217;ll try to get some projects hosted in there very soon, so don&amp;#8217;t worry that it&amp;#8217;s empty now!&amp;#8221;&lt;/p&gt;
+&lt;p&gt;Today they&amp;#8217;ve featured &lt;a href="http://rentzsch.github.com/clicktoflash/"&gt;ClickToFlash&lt;/a&gt;, everyone&amp;#8217;s favorite Safari plugin, in a &lt;a href="http://www.tuaw.com/2009/10/14/clicktoflash-makes-the-web-a-nicer-place-to-visit/"&gt;blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Welcome, TUAWers!&lt;/p&gt;</content>
+    <author>
+      <name>defunkt</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/523</id>
+    <published>2009-10-13T23:12:27-07:00</published>
+    <updated>2009-10-13T23:17:14-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/523-gist-improvements" />
+    <title>Gist Improvements</title>
+    <content type="html">&lt;p&gt;Another day, more updates! We just rolled out some subtle changes to &lt;a href="http://gist.github.com"&gt;Gist&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;Search! All gists are now searchable.  Want to find all &lt;a href="http://gist.github.com/gists/search?q=unicorn&amp;amp;page=1"&gt;gists about unicorn?&lt;/a&gt; Done.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;Unified user box. You may have noticed we rolled out a new user box a couple days ago &amp;#8211; that now follows you to Gist as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;Added your most recent gists on the home page.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;Tweaked UI. Some of the design elements of Gist have changed a bit to be more consistent with the rest of the site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;a href="http://gist.github.com"&gt;&lt;img src="http://share.kyleneath.com/captures/Gist_-_GitHub-20091013-231646.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;Hope you enjoy!&lt;/p&gt;</content>
+    <author>
+      <name>kneath</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/521</id>
+    <published>2009-10-13T11:19:24-07:00</published>
+    <updated>2009-10-13T11:29:42-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/521-speedy-version-sorting" />
+    <title>Speedy Version Sorting</title>
+    <content type="html">&lt;div align="center"&gt;&lt;a href="http://twitter.com/defunkt/statuses/4738823939"&gt;&lt;img src="http://twictur.es/i/4738823939.gif"/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Last week I offered fame and fortune to anyone who could speed up our &lt;a href="https://github.com/defunkt/version_sorter"&gt;version_sorter&lt;/a&gt;. It&amp;#8217;s used to sort a repo&amp;#8217;s tags:&lt;/p&gt;
+&lt;div align="center"&gt;&lt;img src="http://img.skitch.com/20091013-1sg6bq1gr63gebwiuqeguqhja.png"/&gt;&lt;/div&gt;
+&lt;p&gt;This morning I ran the numbers and the winner is&amp;#8230;&lt;/p&gt;
+&lt;div align="center"&gt;&lt;a href="http://github.com/pope"&gt;&lt;img src="http://img.skitch.com/20091013-t29bnac6y5r5c5murydu5jbjam.png"/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href="http://github.com/pope"&gt;Pope&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Special thanks to &lt;a href="http://github.com/binary42"&gt;binary42&lt;/a&gt;, &lt;a href="http://github.com/pope"&gt;pope&lt;/a&gt;, &lt;a href="http://github.com/jordi"&gt;jordi&lt;/a&gt;, &lt;a href="http://github.com/ahoward"&gt;ahoward&lt;/a&gt;, &lt;a href="http://github.com/jqr"&gt;jqr&lt;/a&gt;, and &lt;a href="http://github.com/mikeauclair"&gt;mikeauclair&lt;/a&gt; for speeding up the code.&lt;/p&gt;
+&lt;p&gt;Here are my benchmarks from fastest to slowest. I used &lt;a href="http://gist.github.com/209422"&gt;this script&lt;/a&gt; with &lt;a href="http://gist.github.com/209424"&gt;this dataset&lt;/a&gt; to run them.&lt;/p&gt;
+&lt;pre&gt;version_sorter benchmarks
+sorting 1,311 tags 100 times
+
+original
+                          user     system      total        real
+sort                 49.840000   0.570000  50.410000 ( 60.088636)
+rsort                51.610000   0.610000  52.220000 ( 61.462576)
+-----------------------------------------------------------------
+pope
+                          user     system      total        real
+sort                  0.650000   0.010000   0.660000 (  0.686630)
+rsort                 0.740000   0.010000   0.750000 (  0.806579)
+-----------------------------------------------------------------
+jordi
+                          user     system      total        real
+sort                  1.770000   0.020000   1.790000 (  1.930918)
+rsort                 2.240000   0.020000   2.260000 (  2.477109)
+-----------------------------------------------------------------
+ahoward
+                          user     system      total        real
+sort                  2.360000   0.020000   2.380000 (  2.581706)
+rsort                 2.480000   0.030000   2.510000 (  2.796861)
+-----------------------------------------------------------------
+binary42
+                          user     system      total        real
+sort                  4.170000   0.050000   4.220000 (  4.693593)
+rsort                 4.470000   0.050000   4.520000 (  5.112159)
+-----------------------------------------------------------------
+mikeauclair
+                         user     system      total        real
+sort                 44.060000   0.530000  44.590000 ( 54.701128)
+rsort                46.280000   0.540000  46.820000 ( 54.965692)
+-----------------------------------------------------------------
+jqr
+                          user     system      total        real
+sort                 48.800000   0.540000  49.340000 ( 56.063984)
+rsort                50.970000   0.580000  51.550000 ( 59.799366)
+-----------------------------------------------------------------
+&lt;/pre&gt;
+&lt;p&gt;Pope wrote a C extension, but jordi and ahoward had impressive pure-Ruby implementations as well. Check out all the entries:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;a href="http://github.com/pope/version_sorter"&gt;pope/version_sorter&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="http://github.com/jordi/version_sorter"&gt;jordi/version_sorter&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="http://github.com/ahoward/version_sorter"&gt;ahoward/version_sorter&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="http://github.com/binary42/version_sorter"&gt;binary42/version_sorter&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="http://github.com/mikeauclair/version_sorter"&gt;mikeauclair/version_sorter&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="http://github.com/jqr/version_sorter"&gt;jqr/version_sorter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>defunkt</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/520</id>
+    <published>2009-10-13T10:31:10-07:00</published>
+    <updated>2009-10-13T10:50:35-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/520-a-note-on-today-s-outage" />
+    <title>A Note on Today's Outage</title>
+    <content type="html">&lt;p&gt;We had an outage this morning from 06:32 to 07:42 &lt;span class="caps"&gt;PDT&lt;/span&gt;. One of the file servers experienced an unusually high load that caused the heartbeat monitor on that file server pair to behave abnormally and confuse the dynamic hostname that points to the active file server in the pair. This in turn caused the frontends to start timing out and resulted in their removal from the load balancer. Here is what we intend to do to prevent this from happening in the future:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;The slave file servers are still in standby mode from the migration. We will have a maintenance window tonight at 22:00 &lt;span class="caps"&gt;PDT&lt;/span&gt; in order to ensure that slaves are ready to take over as master should the existing masters exhibit this kind of behavior.&lt;/li&gt;
+	&lt;li&gt;To identify the root cause of the load spikes we will be enabling process accounting on the file servers so that we may inspect what processes are causing the high load.&lt;/li&gt;
+	&lt;li&gt;As a related item, the site still gives a &amp;#8220;connection refused&amp;#8221; error when all the frontends are out of load balancer rotation. We are working on determining why the placeholder site that should be shown during this type of outage is not being brought up.&lt;/li&gt;
+	&lt;li&gt;We&amp;#8217;ve also identified a problem with the single unix domain socket upstream approach in Nginx. By default, any upstream failures cause Nginx to consider that upstream defunct and remove it from service for a short period. With only a single upstream, this obviously presents a problem. We are testing a change to the configuration that should make Nginx always try upstreams.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We apologize for the downtime and any inconvenience it may have caused. Thank you for your patience and understanding as we continue to refine our Rackspace setup and deal with unanticipated events.&lt;/p&gt;</content>
+    <author>
+      <name>mojombo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/519</id>
+    <published>2009-10-12T11:15:15-07:00</published>
+    <updated>2009-10-12T11:26:05-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/519-unicorn-god" />
+    <title>unicorn.god</title>
+    <content type="html">&lt;p&gt;Some people have been asking for our &lt;a href="http://github.com/blog/517-unicorn"&gt;Unicorn&lt;/a&gt; &lt;a href="http://god.rubyforge.org/"&gt;god&lt;/a&gt; config.&lt;/p&gt;
+&lt;p&gt;Here it is:&lt;/p&gt;
+&lt;script src="http://gist.github.com/208581.js"&gt;&lt;/script&gt;&lt;noscript&gt;&lt;pre&gt;# &lt;a href="http://unicorn.bogomips.org/SIGNALS.html"&gt;http://unicorn.bogomips.org/&lt;span class="caps"&gt;SIGNALS&lt;/span&gt;.html&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+rails_env = &lt;span class="caps"&gt;ENV&lt;/span&gt;[&amp;#8216;RAILS_ENV&amp;#8217;] || &amp;#8216;production&amp;#8217;&lt;br /&gt;
+rails_root = &lt;span class="caps"&gt;ENV&lt;/span&gt;[&amp;#8216;RAILS_ROOT&amp;#8217;] || &amp;#8220;/data/github/current&amp;#8221;&lt;br /&gt;
+&lt;br /&gt;
+God.watch do |w|&lt;br /&gt;
+  w.name = &amp;#8220;unicorn&amp;#8221;&lt;br /&gt;
+  w.interval = 30.seconds # default&lt;br /&gt;
+&lt;br /&gt;
+  # unicorn needs to be run from the rails root&lt;br /&gt;
+  w.start = &amp;#8220;cd #{rails_root} &amp;amp;&amp;amp; /usr/local/bin/unicorn_rails -c #{rails_root}/config/unicorn.rb -E #{rails_env} -D&amp;#8221;&lt;br /&gt;
+&lt;br /&gt;
+  # &lt;span class="caps"&gt;QUIT&lt;/span&gt; gracefully shuts down workers&lt;br /&gt;
+  w.stop = &amp;#8220;kill -&lt;span class="caps"&gt;QUIT&lt;/span&gt; `cat #{rails_root}/tmp/pids/unicorn.pid`&amp;#8221;&lt;br /&gt;
+&lt;br /&gt;
+  # USR2 causes the master to re-create itself and spawn a new worker pool&lt;br /&gt;
+  w.restart = &amp;#8220;kill -USR2 `cat #{rails_root}/tmp/pids/unicorn.pid`&amp;#8221;&lt;br /&gt;
+&lt;br /&gt;
+  w.start_grace = 10.seconds&lt;br /&gt;
+  w.restart_grace = 10.seconds&lt;br /&gt;
+  w.pid_file = &amp;#8220;#{rails_root}/tmp/pids/unicorn.pid&amp;#8221;&lt;br /&gt;
+&lt;br /&gt;
+  w.uid = &amp;#8216;git&amp;#8217;&lt;br /&gt;
+  w.gid = &amp;#8216;git&amp;#8217;&lt;br /&gt;
+&lt;br /&gt;
+  w.behavior(:clean_pid_file)&lt;br /&gt;
+&lt;br /&gt;
+  w.start_if do |start|&lt;br /&gt;
+    start.condition(:process_running) do |c|&lt;br /&gt;
+      c.interval = 5.seconds&lt;br /&gt;
+      c.running = false&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+&lt;br /&gt;
+  w.restart_if do |restart|&lt;br /&gt;
+    restart.condition(:memory_usage) do |c|&lt;br /&gt;
+      c.above = 300.megabytes&lt;br /&gt;
+      c.times = [3, 5] # 3 out of 5 intervals&lt;br /&gt;
+    end&lt;br /&gt;
+&lt;br /&gt;
+    restart.condition(:cpu_usage) do |c|&lt;br /&gt;
+      c.above = 50.percent&lt;br /&gt;
+      c.times = 5&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+&lt;br /&gt;
+  # lifecycle&lt;br /&gt;
+  w.lifecycle do |on|&lt;br /&gt;
+    on.condition(:flapping) do |c|&lt;br /&gt;
+      c.to_state = [:start, :restart]&lt;br /&gt;
+      c.times = 5&lt;br /&gt;
+      c.within = 5.minute&lt;br /&gt;
+      c.transition = :unmonitored&lt;br /&gt;
+      c.retry_in = 10.minutes&lt;br /&gt;
+      c.retry_times = 5&lt;br /&gt;
+      c.retry_within = 2.hours&lt;br /&gt;
+    end&lt;br /&gt;
+  end&lt;br /&gt;
+end&lt;/pre&gt;&lt;/noscript&gt;
+&lt;p&gt;That&amp;#8217;s for starting and stopping the master. It&amp;#8217;s important to note that god only knows about the master &amp;#8211; not the workers. The memory limit condition, then, only applies to the master (and is probably never hit).&lt;/p&gt;
+&lt;p&gt;To watch the workers we use a cute hack &lt;a href="http://github.com/mojombo"&gt;mojombo&lt;/a&gt; came up with (though he promises first class support in future versions of code): we start a thread and periodically check the memory usage of workers. If a worker is gobbling up more than 300mb of &lt;span class="caps"&gt;RSS&lt;/span&gt;, we send it a &lt;span class="caps"&gt;QUIT&lt;/span&gt;. The &lt;span class="caps"&gt;QUIT&lt;/span&gt; tells it to die once it finishes processing the current request. Once that happens the master will spawn a new worker &amp;#8211; we should hardly notice.&lt;/p&gt;
+&lt;script src="http://gist.github.com/208588.js"&gt;&lt;/script&gt;&lt;noscript&gt;&lt;pre&gt;# This will ride alongside god and kill any rogue memory-greedy&lt;br /&gt;
+# processes. Their sacrifice is for the greater good.&lt;br /&gt;
+&lt;br /&gt;
+unicorn_worker_memory_limit = 300_000&lt;br /&gt;
+&lt;br /&gt;
+Thread.new do&lt;br /&gt;
+  loop do&lt;br /&gt;
+    begin&lt;br /&gt;
+      # unicorn workers&lt;br /&gt;
+      #&lt;br /&gt;
+      # ps output line format:&lt;br /&gt;
+      # 31580 275444 unicorn_rails worker&lt;sup class="footnote"&gt;&lt;a href="#fn15"&gt;15&lt;/a&gt;&lt;/sup&gt; -c /data/github/current/config/unicorn.rb -E production -D&lt;br /&gt;
+      # pid ram command&lt;br /&gt;
+&lt;br /&gt;
+      lines = `ps -e -www -o pid,rss,command | grep &amp;#8216;[u]nicorn_rails worker&amp;#8217;`.split(&amp;#8220;\n&amp;#8221;)&lt;br /&gt;
+      lines.each do |line|&lt;br /&gt;
+        parts = line.split(&amp;#8217; &amp;#8216;)&lt;br /&gt;
+        if parts&lt;sup class="footnote"&gt;&lt;a href="#fn1"&gt;1&lt;/a&gt;&lt;/sup&gt;.to_i &amp;gt; unicorn_worker_memory_limit&lt;br /&gt;
+          # tell the worker to die after it finishes serving its request&lt;br /&gt;
+          ::Process.kill(&amp;#8217;QUIT&amp;#8217;, parts&lt;sup class="footnote"&gt;&lt;a href="#fn0"&gt;0&lt;/a&gt;&lt;/sup&gt;.to_i)&lt;br /&gt;
+        end&lt;br /&gt;
+      end&lt;br /&gt;
+    rescue Object&lt;br /&gt;
+      # don&amp;#8217;t die ever once we&amp;#8217;ve tested this&lt;br /&gt;
+      nil&lt;br /&gt;
+    end&lt;br /&gt;
+&lt;br /&gt;
+    sleep 30&lt;br /&gt;
+  end&lt;br /&gt;
+end&lt;/pre&gt;&lt;/noscript&gt;
+&lt;p&gt;That&amp;#8217;s it! Don&amp;#8217;t forget the &lt;a href="http://unicorn.bogomips.org/SIGNALS.html"&gt;Unicorn Signals&lt;/a&gt; page when working with Unicorn.&lt;/p&gt;</content>
+    <author>
+      <name>defunkt</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Post/518</id>
+    <published>2009-10-12T09:55:30-07:00</published>
+    <updated>2009-10-12T09:57:15-07:00</updated>
+    <link type="text/html" rel="alternate" href="http://github.com/blog/518-gemcutter-railscast" />
+    <title>Gemcutter Railscast</title>
+    <content type="html">&lt;p&gt;&lt;a href="http://github.com/rbates"&gt;rbates&lt;/a&gt; has a great (as always) &lt;a href="http://railscasts.com/episodes/183-gemcutter-jeweler"&gt;screencast&lt;/a&gt; on &lt;a href="http://github.com/technicalpickles/jeweler"&gt;Jeweler&lt;/a&gt; and &lt;a href="http://gemcutter.org/"&gt;Gemcutter&lt;/a&gt;.&lt;/p&gt;
+&lt;div align="center"&gt;&lt;a href="http://railscasts.com/episodes/183-gemcutter-jeweler"&gt;&lt;img src="http://img.skitch.com/20091012-rrf7756fn2kpqeqbx7qukg8xrn.png"/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Check it out and give Gemcutter a try!&lt;/p&gt;
+&lt;p&gt;(&lt;a href="http://github.com/sr/mg"&gt;mg&lt;/a&gt; looks like another good tool to help you create gems, too (though I haven&amp;#8217;t used it).)&lt;/p&gt;</content>
+    <author>
+      <name>defunkt</name>
+    </author>
+  </entry>
+</feed>
