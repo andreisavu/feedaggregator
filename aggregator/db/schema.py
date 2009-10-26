@@ -17,7 +17,7 @@ def dropdb(client, prefix=''):
     """
     tables = client.getTableNames()
  
-    urls_table= '%sUrl' % prefix
+    urls_table= '%sUrls' % prefix
     if urls_table in tables:
         log.info('Removing table `%s`' % urls_table)
         client.disableTable(urls_table)
