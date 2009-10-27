@@ -28,10 +28,9 @@ def build_key(cat, timestamp, feed=None, client=None, collision_check=False, tab
     If there is a collision simply append an increment counter
 
     >>> build_key('cat', 1)
-    'cat/000000000000001'
+    'cat/1970-01-01T02:00:01'
 
     """
-    # key = '%s/%s' % (cat, add_padding(int(timestamp)))
     key = "%s/%s" % (cat, datetime.fromtimestamp(int(timestamp)).isoformat())
     urlsindex_table = '%sUrlsIndex' % table_prefix
     if collision_check:
