@@ -24,5 +24,5 @@ class TestAggregator(unittest.TestCase):
 
     def testAggregateSingleFeed(self):
         aggregate(self.hbase, self.demo_feed, 'blogs', 'test_')
-        print self.hbase.getRow('test_Feeds', self.demo_feed)
+     
     
