@@ -21,7 +21,7 @@ def add_padding(value, length=15, ch='0'):
         return "%s%s" % (ch * (length - l), value)
     return value
 
-def build_key(cat, timestamp, feed=None, client=None, collision_check=False):
+def build_key(cat, timestamp, feed=None, client=None, collision_check=False, table_prefix=''):
     """
     Build an index key based on category and timestamp
 
@@ -33,10 +33,11 @@ def build_key(cat, timestamp, feed=None, client=None, collision_check=False):
     """
     # key = '%s/%s' % (cat, add_padding(int(timestamp)))
     key = "%s/%s" % (cat, datetime.fromtimestamp(int(timestamp)).isoformat())
+    urlsindex_table = '%sUrlsIndex' % table_prefix
     if collision_check:
         new_key, index = key, 1
         while True:
-            res = client.getRow('UrlsIndex', new_key)
+            res = client.getRow(urlsindex_table, new_key)
             if not res: break
 
             if res[0].columns['Url:'].value == feed:
