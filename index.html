@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>andreisavu/feedaggregator @ GitHub</title>
+	
+	<style type="text/css">
+		body {
+  		margin-top: 1.0em;
+  		background-color: #ffffff;
+		  font-family: "Helvetica,Arial,FreeSans"; 
+  		color: #000000;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+		h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #000000; }
+    h3 { text-align: center; color: #000000; }
+    a { color: #000000; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+		pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	</style>
+	
+</head>
+
+<body>
+  <a href="http://github.com/andreisavu/feedaggregator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/andreisavu/feedaggregator/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/andreisavu/feedaggregator/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+      
+    <h1><a href="http://github.com/andreisavu/feedaggregator">feedaggregator</a> 
+      <span class="small">by <a href="http://github.com/andreisavu">andreisavu</a></span></h1>
+
+    <div class="description">
+      Yet another feed aggregator. Implemented in Python using Hbase as datastore. 
+    </div>
+
+    <h2>Install</h2>
+<p><pre>
+Install steps for Debian linux 5.0 - 64 bit
+-------------------------------------------
+
+This setup instructions are designed to help you setup a development environment.
+
+For 32 bits architecture most of the steps should be similar.
+
+1. Install Python & required libs:
+    
+    sudo apt-get install python python-pyrss2gen python-setuptools python-lxml python-feedparser
+    easy_install web.py
+    easy_install opml
+    
+2. Install Java Sun JDK
+
+    Add this source to /etc/apt/sources.list
+        deb http://ftp.de.debian.org/debian lenny main non-free
+
+    sudo apt-get update
+    sudo apt-get install sun-java6-jdk
+
+    If everything works fine when you type 'java -version' you should see something like this:
+
+        java version "1.6.0_12"
+        Java(TM) SE Runtime Environment (build 1.6.0_12-b04)
+        Java HotSpot(TM) 64-Bit Server VM (build 11.2-b01, mixed mode)
+
+    Set JAVA_HOME by adding the line bellow to ~/.bashrc
+        export JAVA_HOME=/usr/lib/jvm/java-6-sun
+
+3. Install SSH and allow local connections without password
+
+    sudo apt-get install ssh
+    ssh-keygen ( create a key pair with no passphrase )
+    ssh-copy-id localhost ( should ask for you account password )
+    ssh localhost ( should login without asking for a password )
+    
+    Add JAVA_HOME to the ssh environment:
+        http://www.netexpertise.eu/en/ssh/environment-variables-and-ssh.html 
+
+        - Add ‘PermitUserEnvironment yes’ to your sshd_config file and restart the ssh service.
+        - Define JAVA_HOME variable in ~/.ssh/environment 
+
+    After all this steps you should see the following behaviour:
+
+        $ ssh localhost env | grep JAVA_HOME
+        JAVA_HOME=/usr/lib/jvm/java-6-sun
+
+4. Install a standalone version of hbase 0.20.x and start it
+
+    wget http://mirrors.hostingromania.ro/apache.org/hadoop/hbase/hbase-0.20.0/hbase-0.20.0.tar.gz
+    tar xvfz hbase-0.20.0.tar.gz
+    cd hbase-0.20.0/bin
+    ./start-hbase.sh
+    
+    You also need to start a local thrift sever:
+
+    ./hbase thrift start >../thrift.log 2>&1 &
+
+    WARNING: the hbase data files will be locate in your /tmp folder.
+    
+5. Install python thrift
+
+    Install requirements:
+
+        sudo apt-get install libboost-dev automake libtool flex bison pkg-config g++ automake make
+
+    Download and install latest version of thrift:
+
+        wget -O thrift.tgz "http://gitweb.thrift-rpc.org/?p=thrift.git;a=snapshot;h=HEAD;sf=tgz" 
+        tar xvfz thrift.tgz
+        cd thrift
+
+        ./bootstrap.sh
+        ./configure --without-csharp --without-java --without-erlang --without-perl --without-ruby
+        make
+        sudo make install
+
+    After all this the following commands should work just fine:
+
+        $ python 
+        Python 2.5.2 (r252:60911, Jan  4 2009, 21:59:32) 
+        [GCC 4.3.2] on linux2
+        Type "help", "copyright", "credits" or "license" for more information.
+        >>> import thrift
+        >>> 
+
+6. Install git and fetch the feedaggregator master branch from github
+
+    apt-get install git-core
+    
+    git clone git://github.com/andreisavu/feedaggregator.git
+    cd feedaggregator
+    ./aggregator.py --resetdb
+    ./aggregator.py -f http://feeds.feedburner.com/github --cat=blogs
+    ./aggregator.py -f http://twitter.com/statuses/user_timeline/14943648.rss --cat=twitter
+    ./aggregator.py --webui
+
+    Open your browser and go to http://localhost:8080. 
+
+That's all! Have fun!
+</pre>
+</p>
+<h2>Authors</h2>
+<p>Andrei Savu (contact@andreisavu.ro)<br/><br/>      </p>
+
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/andreisavu/feedaggregator/zipball/master">zip</a> or
+      <a href="http://github.com/andreisavu/feedaggregator/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/andreisavu/feedaggregator</pre>
+    </p>
+      
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/andreisavu/feedaggregator">andreisavu/feedaggregator</a>
+    </div>
+    
+  </div>
+
+  
+</body>
+</html>
