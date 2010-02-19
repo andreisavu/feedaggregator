@@ -2,7 +2,7 @@
 """
 Yet another feed aggregator. 
 
-A hase sample application.
+A hbase sample application.
 """
 
 import sys
