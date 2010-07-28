@@ -1,6 +1,7 @@
-
 Hbase powered feed aggregator
 -----------------------------
+
+WARNING: This is deprecated. It works only with HBase 0.19 and an older version of Apache Thrift. I will keep the repository here because I believe it's still useful as a proof-of-concept. 
 
 Install guide
 -------------
